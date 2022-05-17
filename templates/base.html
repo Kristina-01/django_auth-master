@@ -14,7 +14,9 @@
 </head>
 <body>
   <main>
+    <img class="img-arrow" src="{% static 'img/user.svg'%}" alt="">
     <p id="exit-user-p"><a id="exit-user-a" href="{% url 'logout' %}" class="link-primary">Выход</a></p>
+
     {% block content %}
     {% endblock %}
   </main>

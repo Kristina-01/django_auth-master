@@ -3,6 +3,25 @@
 #.venv\Scripts\Activate.ps1
 #python manage.py runserver
 
+
+# ---------------------------------------------------------------
+#Быстрое исправление.
+
+#Сначала удалите поле scores, затем
+
+#python manage.py makemigrations
+#python manage.py migrate
+#Если произойдет какая-либо ошибка
+
+#python manage.py migrate --fake
+#Затем добавьте поле scores. Затем
+
+#python manage.py makemigrations
+#python manage.py migrate
+#Надеюсь это поможет.
+
+# -----------------------------------------------
+
 import os
 import sys
 
