@@ -1,0 +1,249 @@
+{% extends 'lessonsbase.html' %}
+
+{% block contentln %}
+<div class="container d-flex align-items-center justify-content-center">
+<h1>Урок 6. Списки</h1>
+</div>
+<div class="container d-flex align-items-center justify-content-center">
+<p  class="abz">Время прочтения: 6 минуты </p>
+</div>
+
+
+<div class="block1" align="justify" >
+  <p class="abz">Одна из ключевых особенностей Python, благодаря которой он является таким популярным – это простота.
+  Особенно подкупает простота работы с различными структурами данных – списками, кортежами, словарями и множествами.
+  Сегодня мы рассмотрим работу со списками.</p>
+  <p class="abz">Что такое список (list) в Python?</p>
+  <p class="abz">Список (list) – это структура данных для хранения объектов различных типов. Если вы использовали
+  другие языки программирования, то вам должно быть знакомо понятие массива. Так вот, список очень похож на массив,
+  только, как было уже сказано выше, в нем можно хранить объекты различных типов. Размер списка не статичен,
+  его можно изменять. Список по своей природе является изменяемым типом данных. Про типы данных можно подробно
+  прочитать здесь. Переменная, определяемая как список, содержит ссылку на структуру в памяти, которая в свою очередь
+  хранит ссылки на какие-либо другие объекты или структуры.</p>
+  <p class="abz">Как списки хранятся в памяти?</p>
+  <p class="abz">Как уже было сказано выше, список является изменяемым типом данных. При его создании в памяти резервируется
+  область, которую можно условно назвать некоторым “контейнером”, в котором хранятся ссылки на другие элементы данных в памяти.
+  В отличии от таких типов данных как число или строка, содержимое “контейнера” списка можно менять. </p>
+         <p class="abz">Создание, изменение, удаление списков и работа с его элементами</p>
+         <p class="abz">Создать список можно одним из следующих способов.</p>
+         <p class="abz">>>> a = []</p>
+		 <p class="abz">>>> type(a)</p>
+		 <p class="abz">class 'list'</p>
+		 <p class="abz">>>> b = list()</p>
+ <p class="abz">>>> type(b)</p>
+         <p class="abz">class 'list'</p>
+         <p class="abz">Также можно создать список с заранее заданным набором данных.</p>
+ <p class="abz">>>> a = [1, 2, 3] </p>
+         <p class="abz">>>> type(a)</p>
+         <p class="abz">class 'list'</p>
+         <p class="abz">Если у вас уже есть список и вы хотите создать его копию, то можно воспользоваться следующим способом:</p>
+         <p class="abz">>>> a = [1, 3, 5, 7]</p>
+ <p class="abz">>>> b = a[:]</p>
+         <p class="abz">>>> print(a)</p>
+         <p class="abz">[1, 3, 5, 7]<p>
+ <p class="abz">>>> print(b)</p>
+         <p class="abz">[1, 3, 5, 7]</p>
+         <p class="abz">или сделать это так:</p>
+         <p class="abz">>>> a = [1, 3, 5, 7]</p>
+		 <p class="abz">>>> b = list(a)</p>
+		 <p class="abz">>>> print(a)</p>
+		 <p class="abz">[1, 3, 5, 7]</p>
+ <p class="abz">>>> print(b)</p>
+ <p class="abz">[1, 3, 5, 7]</p>
+ <p class="abz">В случае, если вы выполните простое присвоение списков друг другу, то переменной b будет присвоена ссылка на тот
+ же элемент данных в памяти, на который ссылается a, а не копия списка а. Т.е. если вы будете изменять список a, то и b тоже будет меняться.</p>
+         <p class="abz">>>> a = [1, 3, 5, 7]</p>
+         <p class="abz">>>> b = a</p>
+         <p class="abz">>>> print(a)</p>
+  <p class="abz">[1, 3, 5, 7]</p>
+  <p class="abz">>>> print(b)</p>
+  <p class="abz">[1, 3, 5, 7] </p>
+         <p class="abz">>>> a[1] = 10</p>
+         <p class="abz">>>> print(a)</p>
+  <p class="abz">[1, 10, 5, 7]</p>
+         <p class="abz">>>> print(b)</p>
+         <p class="abz">[1, 10, 5, 7]</p>
+  <p class="abz">Добавление элемента в список осуществляется с помощью метода append().</p>
+         <p class="abz">>>> a = []</p>
+         <p class="abz">>>> a.append(3)</p>
+         <p class="abz">>>> a.append("hello")</p>
+         <p class="abz">>>> print(a)</p>
+         <p class="abz">[3, 'hello']</p>
+  <p class="abz">Для удаления элемента из списка, в случае, если вы знаете его значение, используйте метод remove(x),
+  при этом будет удалена первая ссылка на данный элемент.</p>
+  <p class="abz">>>> b = [2, 3, 5]</p>
+         <p class="abz">>>> print(b)</p>
+         <p class="abz">[2, 3, 5]</p>
+         <p class="abz">>>> b.remove(3)</p>
+         <p class="abz">>>> print(b)</p>
+         <p class="abz">[2, 5]</p>
+         <p class="abz">Если необходимо удалить элемент по его индексу, воспользуйтесь командой del имя_списка[индекс]</p>
+  <p class="abz">>>> c = [3, 5, 1, 9, 6]</p>
+         <p class="abz">>>> print(c)</p>
+         <p class="abz">[3, 5, 1, 9, 6]</p>
+         <p class="abz">>>> del c[2]</p>
+         <p class="abz">>>> print(c)</p>
+         <p class="abz">[3, 5, 9, 6]</p>
+          <p class="abz">Изменить значение элемента списка, зная его индекс, можно напрямую к нему обратившись.</p>
+ <p class="abz">>>> d = [2, 4, 9] </p>
+          <p class="abz">>>> print(d)</p>
+          <p class="abz">[2, 4, 9]</p>
+  <p class="abz">>>> d[1] = 17</p>
+  <p class="abz">>>> print(d) </p>
+  <p class="abz">[2, 17, 9]</p>
+  <p class="abz">Очистить список можно просто заново его проинициализировав, так как будто вы его вновь создаете.
+  Для получения доступа к элементу списка укажите индекс этого элемента в квадратных скобках.</p>
+  <p class="abz">>>> a = [3, 5, 7, 10, 3, 2, 6, 0]</p>
+  <p class="abz">>>> a[2]</p>
+  <p class="abz">7</p>
+  <p class="abz">Можно использовать отрицательные индексы, в таком случае счет будет идти с конца, например для доступа
+  к последнему элементу списка можно использовать вот такую команду:</p>
+  <p class="abz">>>> a[-1]</p>
+  <p class="abz">0</p>
+  <p class="abz">Для получения из списка некоторого подсписка в определенном диапазоне индексов, укажите начальный и
+  конечный индекс в квадратных скобках, разделив их двоеточием.</p>
+  <p class="abz">>>> a[1:4]</p>
+  <p class="abz">[5, 7, 10]</p>
+  <p class="abz">Методы списков</p>
+  <p class="abz">list.append(x)</p>
+  <p class="abz">Добавляет элемент в конец списка. </p>
+  <p class="abz">>>> a = [1, 2] </p>
+  <p class="abz">>>> a.append(3)</p>
+  <p class="abz">>>> print(a)< 10:</p>
+  <p class="abz">[1, 2, 3]</p>
+  <p class="abz">list.extend(L)</p>
+  <p class="abz">Расширяет существующий список за счет добавления всех элементов из списка L. </p>
+  <p class="abz">>>> a = [1, 2]</p>
+  <p class="abz">>>> b = [3, 4] </p>
+  <p class="abz">>>> a.extend(b)</p>
+  <p class="abz">>>> print(a)</p>
+  <p class="abz">[1, 2, 3, 4]<p>
+  <p class="abz">list.insert(i, x)</p>
+  <p class="abz">Вставить элемент x в позицию i.  Первый аргумент – индекс элемента после которого будет вставлен элемент x.</p>
+  <p class="abz">>>> a = [1, 2] </p>
+  <p class="abz">>>> a.insert(0, 5)</p>
+  <p class="abz">>>> print(a)</p>
+  <p class="abz">[5, 1, 2]</p>
+  <p class="abz">>>> a.insert(len(a), 9)</p>
+  <p class="abz">>>> print(a)</p>
+  <p class="abz">[5, 1, 2, 9]</p>
+  <p class="abz">list.remove(x)</p>
+  <p class="abz">Удаляет первое вхождение элемента x из списка.<p>
+  <p class="abz">>>> a = [1, 2, 3]</p>
+  <p class="abz">>>> a.remove(1) </p>
+<p class="abz">>>> print(a)</p>
+<p class="abz">[2, 3]</p>
+<p class="abz">list.pop([i])</p>
+<p class="abz">Удаляет элемент из позиции i и возвращает его. Если использовать метод без аргумента,
+ то будет удален последний элемент из списка.</p>
+<p class="abz">>>> a = [1, 2, 3, 4, 5]</p>
+<p class="abz">>>> print(a.pop(2))</p>
+<p class="abz">3</p>
+<p class="abz">>>> print(a.pop())</p>
+<p class="abz">5</p>
+<p class="abz">[1, 2, 4]</p>
+<p class="abz">list.clear()</p>
+<p class="abz">Удаляет все элементы из списка.</p>
+<p class="abz">>>> a = [1, 2, 3, 4, 5]</p>
+<p class="abz">>>> print(a)</p>
+<p class="abz">[1, 2, 3, 4, 5]</p>
+<p class="abz">>>> a.clear()</p>
+<p class="abz">>>> print(a)</p>
+<p class="abz">[]</p>
+<p class="abz">list.index(x[, start[, end]])</p>
+<p class="abz">Возвращает индекс элемента.</p>
+<p class="abz">>>> a = [1, 2, 3, 4, 5]</p>
+<p class="abz">>>> a.index(4)</p>
+<p class="abz">3</p>
+<p class="abz">list.count(x)</p>
+<p class="abz">Возвращает количество вхождений элемента x в список.</p>
+<p class="abz">>>> a=[1, 2, 2, 3, 3]</p>
+<p class="abz">>>> print(a.count(2)) </p>
+<p class="abz">2</p>
+<p class="abz">List Comprehensions</p>
+<p class="abz">List Comprehensions чаще всего на русский язык переводят как  абстракция списков или списковое включение,
+является частью синтаксиса языка, которая предоставляет простой способ построения списков. Проще всего работу list comprehensions
+показать на примере. Допустим вам необходимо создать список целых чисел от 0 до n, где n предварительно задается. Классический способ
+решения данной задачи выглядел бы так:</p>
+<p class="abz">>>> n = int(input())</p>
+<p class="abz">7</p>
+<p class="abz">>>> a=[]</p>
+<p class="abz">>>> for i in range(n):</p>
+<p class="abz">a.append(i)</p>
+<p class="abz">>>> print(a)</p>
+<p class="abz">[0, 1, 2, 3, 4, 5, 6]</p>
+<p class="abz">Использование list comprehensions позволяет сделать это значительно проще:</p>
+<p class="abz">7</p>
+<p class="abz">>>> a = [i for i in range(n)]</p>
+<p class="abz">>>> print(a)</p>
+<p class="abz">[0, 1, 2, 3, 4, 5, 6]</p>
+<p class="abz">или вообще вот так, в случае если вам не нужно больше использовать n:</p>
+<p class="abz">>>> a = [i for i in range(int(input()))]</p>
+<p class="abz">7</p>
+<p class="abz">>>> print(a)</p>
+<p class="abz">[0, 1, 2, 3, 4, 5, 6]</p>
+
+
+ <form method="post">
+<span class="quesion_n">1.Что такое list?</span>
+<ul>
+<li><input type="radio" name="test[1]" value="0" id="test_1_0_1" onclick="updateButtonState(this)"/> <label for="test_1_0_1">Это структура данных для хранения объектов одинаковых типов.</label></li>
+<li><input type="radio" name="test[1]" value="1" id="test_1_1_1" onclick="updateButtonState(this)"/> <label for="test_1_1_1">"Это абстрактный тип данных, представляющий конечное число не упорядоченных значений, где одно и то же значение может встречаться только один раз.</label></li>
+<li><input type="radio" name="test[1]" value="2" id="test_1_2_1" onclick="updateButtonState(this)"/> <label for="test_1_2_1">Это структура данных для хранения объектов различных типов.</label></li>
+</ul>
+<span class="quesion_n">2.Каким способом можно создать список?</span>
+<ul>
+<li><input type="radio" name="test[2]" value="0" id="test_1_0_2" onclick="updateButtonState(this)"/> <label for="test_1_0_2">list a = []</label></li>
+<li><input type="radio" name="test[2]" value="1" id="test_1_1_2" onclick="updateButtonState(this)"/> <label for="test_1_1_2">a = [] </label></li>
+<li><input type="radio" name="test[2]" value="2" id="test_1_2_2" onclick="updateButtonState(this)"/> <label for="test_1_2_2">a = {}</label></li>
+</ul>
+<span class="quesion_n">3.Что выполняет метод .extend(L)?</span>
+<ul>
+<li><input type="radio" name="test[3]" value="0" id="test_1_0_3" onclick="updateButtonState(this)"/> <label for="test_1_0_3">Расширяет существующий список за счет добавления всех элементов из списка L.</label></li>
+<li><input type="radio" name="test[3]" value="1" id="test_1_1_3" onclick="updateButtonState(this)"/> <label for="test_1_1_3">Добавляет элемент в соответствие с указанным индексом L</label></li></label></li>
+<li><input type="radio" name="test[3]" value="2" id="test_1_2_3" onclick="updateButtonState(this)"/> <label for="test_1_2_3">Удаляет элемент с индексом L</label></li></label></li>
+</ul>
+<span class="quesion_n">4.Как можно удалить 3 элемент по индексу из списка a = [2,1,4,6,3,10]</span>
+<ul>
+<li><input type="radio" name="test[4]" value="0" id="test_1_0_4" onclick="updateButtonState(this)"/> <label for="test_1_0_4">a.remove(3)</label></li>
+<li><input type="radio" name="test[4]" value="1" id="test_1_1_4" onclick="updateButtonState(this)"/> <label for="test_1_1_4">del c[3]</label></li>
+<li><input type="radio" name="test[4]" value="2" id="test_1_2_4" onclick="updateButtonState(this)"/> <label for="test_1_2_4">del c[4]</label></li>
+</ul>
+<span class="quesion_n">5.Что выведет данный код? <p class="abz">a = ["Hello"]</p>
+												  <p class="abz">a.append("!!!")</p>
+												  <p class="abz">print(a)</p>
+</span>
+<ul>
+<li><input type="radio" name="test[5]" value="0" id="test_1_0_5" onclick="updateButtonState(this)"/> <label for="test_1_0_5">Hello</label></li>
+<li><input type="radio" name="test[5]" value="1" id="test_1_1_5" onclick="updateButtonState(this)"/> <label for="test_1_1_5">Hello!!!</label></li>
+<li><input type="radio" name="test[5]" value="2" id="test_1_2_5" onclick="updateButtonState(this)"/> <label for="test_1_2_5">!!!</label></li>
+</ul>
+
+{% csrf_token %}
+      <button id="btn-input" type="submit" name="run_script"
+              class="btn btn-info" style="display: none">
+          Проверить результаты</button>
+     <script>
+        var list = [];
+        function updateButtonState(inpt){
+         if(inpt){
+            console.log(list.length);
+            if(!list.includes(inpt.name)){
+              list.push(inpt.name)
+            }
+           }
+
+           let n =  document.getElementsByTagName("ul").length;
+             if(list.length >= n){
+               document.getElementById('btn-input').style.display = 'block';
+               }
+        }
+    </script>
+  </form>
+  </div>
+
+
+
+
+
+{% endblock %}

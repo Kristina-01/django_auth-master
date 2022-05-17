@@ -1,0 +1,52 @@
+@import url("404.css");
+
+ .abz {
+    text-indent: 20px;	/* Отступ первой строки в пикселах */
+	font-size: 15pt;
+   }
+   .block1 {
+    width: auto; /* Ширина элемента в пикселах */
+    padding: 60px; /* Поля вокруг текста */
+    margin: auto; /* Выравниваем по центру */
+	margin-left:15%;
+	margin-right:15%;
+    background: #FAF0E6	; /* Цвет фона */
+   }
+   span {
+	font-size: 17pt;
+   }
+    li {
+	font-size: 17pt;
+    list-style-type: none; /* Убираем маркеры */
+   }
+
+   .div-state-res{
+    height:50px;
+    width:100vw;
+    display: -webkit-flex;
+    margin-top:50px;
+
+   }
+
+   .div-state-res > .flex-item {
+	-webkit-flex: 20%;
+	flex: 20%;
+	text-align: center
+}
+
+  .div-state-res > .flex-item-p {
+	-webkit-flex: 60%;
+	flex: 60%;
+	text-align: center
+}
+
+.div-state-res > .flex-item-p > p{
+ font-size: 15pt;
+}
+
+.img-arrow{
+ margin-right:15px;
+}
+
+
+

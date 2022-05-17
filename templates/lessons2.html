@@ -1,0 +1,141 @@
+{% extends 'lessonsbase.html' %}
+
+{% block contentln %}
+<div class="container d-flex align-items-center justify-content-center">
+<h1>Урок 2. Типы данных. Переменные.</h1>
+</div>
+<div class="container d-flex align-items-center justify-content-center">
+<p  class="abz">Время прочтения: 6 минуты </p>
+</div>
+
+ <div class="block1" align="justify" >
+  <p class="abz">Python является языком программирования с динамической типизацией(тип переменной определяется непосредственно при выполнении программы).
+  Также  Python относится к языкам с неявной сильной динамической типизацией. Неявная типизация означает, что при объявлении переменной вам не
+  нужно указывать её тип, при явной – это делать необходимо. В качестве примера языков с явной типизацией можно привести Java, C++. Вот как будет
+  выглядеть объявление целочисленной переменной в Java и Python.</p>
+  <p  class="abz"> Java: int a = 1;</p>
+  <p  class="abz"> Python: a = 1</p>
+  <p  class="abz">В Python типы данных можно разделить на встроенные в интерпретатор (built-in) и не встроенные, которые можно использовать при импортировании
+  соответствующих модулей.</p>
+  <p  class="abz">К основным встроенным типам относятся:</p>
+         <p  class="abz">1. None (неопределенное значение переменной)</p>
+         <p  class="abz">2. Логические переменные (Boolean Type)</p>
+         <p  class="abz">3. Числа (Numeric Type)</p>
+            <p  class="abz">    a. int – целое число </p>
+            <p  class="abz">    b. float – число с плавающей точкой</p>
+            <p  class="abz">    c. complex – комплексное число</p>
+         <p  class="abz">4. Списки (Sequence Type)</p>
+             <p  class="abz">a. list – список</p>
+             <p  class="abz">b. tuple – кортеж</p>
+             <p  class="abz">c.range – диапазон</p>
+         <p  class="abz">5.Строки (Text Sequence Type )</p>
+             <p  class="abz">a.str</p>
+         <p  class="abz">6. Бинарные списки (Binary Sequence Types)</p>
+             <p  class="abz">a. bytes – байты</p>
+             <p  class="abz">b. bytearray – массивы байт</p>
+             <p  class="abz">c. memoryview – специальные объекты для доступа к внутренним данным объекта через protocol buffer</p>
+         <p  class="abz">7. Множества (Set Types)</p>
+             <p  class="abz">a. set – множество</p>
+             <p  class="abz">b. frozenset – неизменяемое множество</p>
+         <p  class="abz">8. Словари (Mapping Types)</p>
+             <p  class="abz">a. dict – словарь</p>
+</p>
+  <p  class="abz">Для того, чтобы объявить и сразу инициализировать переменную необходимо написать её имя, потом поставить знак равенства и значение, с которым эта
+  переменная будет создана. Например строка: b = 5 объявляет переменную b и присваивает ей значение 5. </p>
+  <p  class="abz">Целочисленное значение 5 в рамках языка Python по сути своей является объектом. Объект, в данном случае – это абстракция для представления данных,
+  данные – это числа, списки, строки и т.п. При этом, под данными следует понимать как непосредственно сами объекты, так и отношения между ними (об этом чуть позже).
+  Каждый объект имеет три атрибута – это идентификатор, значение и тип. Идентификатор – это уникальный признак объекта, позволяющий отличать объекты друг от друга,
+  а значение – непосредственно информация, хранящаяся в памяти, которой управляет интерпретатор.</p>
+  <p  class="abz">При инициализации переменной, на уровне интерпретатора, происходит следующее:
+         <p  class="abz"> 1. создается целочисленный объект 5 (можно представить, что в этот момент создается ячейка и 5 кладется в эту ячейку);</p>
+         <p  class="abz"> 2. данный объект имеет некоторый идентификатор, значение: 5, и тип: целое число;</p>
+         <p  class="abz"> 3. посредством оператора “=” создается ссылка между переменной b и целочисленным объектом 5 (переменная b ссылается на объект 5). </p>
+  <p  class="abz">Имя переменной не должно совпадать с ключевыми словами интерпретатора Python. </p>
+  <p  class="abz">Тип переменной можно определить с помощью функции type(). Пример использования приведен ниже.</p>
+  <p  class="abz"> >>> b = "hello"</p>
+  <p  class="abz">  >>> type(b)</p>
+  <p  class="abz">    class 'str' </p>
+  <p  class="abz">В Python существуют изменяемые и неизменяемые типы.</p>
+  <p  class="abz">К неизменяемым (immutable) типам относятся: целые числа (int),  числа с плавающей точкой (float), комплексные числа (complex), логические переменные (bool),
+  кортежи (tuple), строки (str) и неизменяемые множества (frozen set).</p>
+  <p  class="abz">К изменяемым (mutable) типам относятся: списки (list), множества (set), словари (dict).</p>
+  <p  class="abz">	Как уже было сказано ранее, при создании переменной, вначале создается объект, который имеет уникальный идентификатор, тип и значение, после этого
+  переменная может ссылаться на созданный объект.</p>
+  <p  class="abz">Неизменяемость типа данных означает, что созданный объект больше не изменяется. Например, если мы объявим переменную k = 15, то будет создан объект со значением 15,
+  типа int и идентификатором, который можно узнать с помощью функции id().</p>
+  <p  class="abz">>>> k = 15</p>
+  <p  class="abz">  >>> id(k)</p>
+  <p  class="abz">   1672501744</p>
+  <p  class="abz">   >>> type(k)</p>
+  <p  class="abz">   class 'int'</p>
+  <p  class="abz">Объект с id = 1672501744 будет иметь значение 15 и изменить его уже нельзя.</p>
+  <p  class="abz">Если тип данных изменяемый, то можно менять значение объекта.</p>
+  <p  class="abz">Например, создадим список [1, 2], а потом заменим второй элемент на 3.</p>
+  <p  class="abz"> >>> a = [1, 2]</p>
+  <p  class="abz">  >>> id(a)</p>
+  <p  class="abz">  47997336</p>
+  <p  class="abz">   >>> a[1] = 3</p>
+  <p  class="abz">   >>> a</p>
+  <p  class="abz">   [1, 3]</p>
+  <p  class="abz">   >>> id(a)</p>
+  <p  class="abz">   47997336 </p>
+  <p  class="abz">Как видно, объект на который ссылается переменная a, был изменен. </p>
+  <p  class="abz">В рассмотренном случае, в качестве данных списка, выступают не объекты, а отношения между объектами. Т.е. в переменной a хранятся ссылки на объекты содержащие числа 1 и 3,
+  а не непосредственно сами эти числа.</p>
+  <p  class="abz">Вопросы:</p>
+
+      <span class="quesion_n">1.Что подразумевает неявная типизация ?</span>
+      <form method="post">
+    <ul>
+    <li><input type="radio" name="test[1]" value="0" id="test_1_0_1" onclick="updateButtonState(this)"/> <label for="test_1_0_1"> при объявлении переменной не нужно указывать её тип</label></li>
+    <li><input type="radio" name="test[1]" value="1" id="test_1_1_1" onclick="updateButtonState(this)"/> <label for="test_1_1_1">при объявление переменной всегда нужно указывать тип перменной </label></li>
+    <li><input type="radio" name="test[1]" value="2" id="test_1_2_1" onclick="updateButtonState(this)"/> <label for="test_1_2_1">тип переменной стоит указывать лишь в некоторых случаях </label></li>
+    </ul>
+    <span class="quesion_n">2.Как правильно объявить переменную в Python?</span>
+    <ul>
+    <li><input type="radio" name="test[2]" value="0" id="test_1_0_2" onclick="updateButtonState(this)"/> <label for="test_1_0_2"> b равно 10</label></li>
+    <li><input type="radio" name="test[2]" value="1" id="test_1_1_2" onclick="updateButtonState(this)"/> <label for="test_1_1_2">int b = 10;</label></li>
+    <li><input type="radio" name="test[2]" value="2" id="test_1_2_2" onclick="updateButtonState(this)"/> <label for="test_1_2_2">b =10 </label></li>
+    </ul>
+    <span class="quesion_n">3.Какие типы относятся к изменяемым?</span>
+    <ul>
+    <li><input type="radio" name="test[3]" value="0" id="test_1_0_3" onclick="updateButtonState(this)"/> <label for="test_1_0_3">списки (list), множества (set), целые числа (int),  числа с плавающей точкой (float) </label></li>
+    <li><input type="radio" name="test[3]" value="1" id="test_1_1_3" onclick="updateButtonState(this)"/> <label for="test_1_1_3">целые числа (int),  числа с плавающей точкой (float), комплексные числа (complex), логические переменные (bool), кортежи (tuple), строки (str)</label></li>
+    <li><input type="radio" name="test[3]" value="2" id="test_1_2_3" onclick="updateButtonState(this)"/> <label for="test_1_2_3">списки (list), множества (set), словари (dict) </label></li>
+    </ul>
+    <span class="quesion_n">4.С помощью какой функции можно определить тип переменной a?</span>
+    <ul>
+    <li><input type="radio" name="test[4]" value="0" id="test_1_0_4" onclick="updateButtonState(this)"/> <label for="test_1_0_4">whattype(a) </label></li>
+    <li><input type="radio" name="test[4]" value="1" id="test_1_1_4" onclick="updateButtonState(this)"/> <label for="test_1_1_4">type(a)</label></li>
+    <li><input type="radio" name="test[4]" value="2" id="test_1_2_4" onclick="updateButtonState(this)"/> <label for="test_1_2_4">id(a)</label></li>
+    </ul>
+    <span class="quesion_n">5.Какое утверждение НЕВЕРНО?</span>
+    <ul>
+    <li><input type="radio" name="test[5]" value="0" id="test_1_0_5" onclick="updateButtonState(this)"/> <label for="test_1_0_5">Если тип данных изменяемый, то можно менять значение объекта. </label></li>
+    <li><input type="radio" name="test[5]" value="1" id="test_1_1_5" onclick="updateButtonState(this)"/> <label for="test_1_1_5">Каждый объект имеет три атрибута – это идентификатор, значение и тип.</label></li>
+    <li><input type="radio" name="test[5]" value="2" id="test_1_2_5" onclick="updateButtonState(this)"/> <label for="test_1_2_5">Имя переменной может совпадать с ключевыми словами интерпретатора Python.
+     </label></li>
+    </ul>
+      {% csrf_token %}
+      <button id="btn-input" type="submit" name="run_script"
+              class="btn btn-info" style="display: none">
+          Проверить результаты</button>
+     <script>
+        var list = [];
+        function updateButtonState(inpt){
+         if(inpt){
+            console.log(list.length);
+            if(!list.includes(inpt.name)){
+              list.push(inpt.name)
+            }
+           }
+
+           let n =  document.getElementsByTagName("ul").length;
+             if(list.length >= n){
+               document.getElementById('btn-input').style.display = 'block';
+               }
+        }
+    </script>
+  </form>
+  </div>
+{% {% endblock %}

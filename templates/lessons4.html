@@ -1,0 +1,218 @@
+{% extends 'lessonsbase.html' %}
+
+{% block contentln %}
+<div class="container d-flex align-items-center justify-content-center">
+<h1>Урок 4. Арифметические операции с числами</h1>
+</div>
+<div class="container d-flex align-items-center justify-content-center">
+<p>Время прочтения: 12 минуты </p>
+</div>
+<div class="block1" align="justify" >
+  <p class="abz">Python поддерживает все распространенные арифметические операции:</p>
+  <p class="abz"> Обычно требуется, чтобы программа обрабатывала какой-то диапазон различных входных данных, которые поступают в нее из
+  внешних источников. В качестве последних могут выступать файлы, клавиатура, сеть, выходные данные из другой программы.
+  В свою очередь вывод данных, например, возможен в файл, по сети, в базу данных, на принтер. Однако нередко информацию просто
+  выводят на экран монитора.</p>
+  <p class="abz">+</p>
+  <p class="abz">Сложение двух чисел:</p>
+  <p class="abz">print(6 + 2)  # 8</p>
+         <p class="abz">-</p>
+         <p class="abz">Вычитание двух чисел:</p>
+         <p class="abz">print(6 - 2)  # 4</p>
+		 <p class="abz">*</p>
+		 <p class="abz">Умножение двух чисел:</p>
+		 <p class="abz">print(6 * 2)  # 12</p>
+ <p class="abz">/</p>
+         <p class="abz">Деление двух чисел:</p>
+         <p class="abz">print(6 / 2)  # 3.0</p>
+ <p class="abz">//</p>
+         <p class="abz">Целочисленное деление двух чисел:</p>
+         <p class="abz">print(7 / 2)  # 3.5</p>
+         <p class="abz">print(7 // 2)  # 3</p>
+         <p class="abz">Данная операция возвращает целочисленный результат деления, отбрасывая дробную часть</p>
+ <p class="abz">**</p>
+         <p class="abz">Возведение в степень:</p>
+         <p class="abz">print(6 ** 2)  # Возводим число 6 в степень 2. Результат - 36<p>
+ <p class="abz">%</p>
+         <p class="abz">Получение остатка от деления:</p>
+         <p class="abz">print(7 % 2)  # Получение остатка от деления числа 7 на 2. Результат - 1</p>
+         <p class="abz">В данном случае ближайшее число к 7, которое делится на 2 без остатка, это 6. Поэтому остаток от деления равен 7 - 6 = 1</p>
+		 <p class="abz">При последовательном использовании нескольких арифметических операций их выполнение производится в соответствии с их приоритетом.
+		 В начале выполняются операции с большим приоритетом.</p>
+		 <p class="abz">Следует отметить, что в арифметических операциях могут принимать участие как целые, так и дробные числа. Если в одной операции '
+		 участвует целое число (int) и число с плавающей точкой (float), то целое число приводится к типу float.</p>
+		 <p class="abz">Арифметические операции с присвоением</p>
+ <p class="abz">Ряд специальных операций позволяют использовать присвоить результат операции первому операнду:</p>
+ <p class="abz">+=</p>
+ <p class="abz">Присвоение результата сложения</p>
+         <p class="abz">-=</p>
+         <p class="abz">Присвоение результата вычитания</p>
+         <p class="abz">*=</p>
+
+
+  <p class="abz">Присвоение результата умножения</p>
+  <p class="abz">/=</p>
+  <p class="abz">Присвоение результата от деления</p>
+  <p class="abz">//=</p>
+         <p class="abz">Присвоение результата целочисленного деления</p>
+         <p class="abz">**=</p>
+  <p class="abz">Присвоение степени числа</p>
+         <p class="abz">%=</p>
+         <p class="abz">Присвоение остатка от деления</p>
+  <p class="abz">Примеры операций:</p>
+         <p class="abz"> number = 10</p>
+         <p class="abz"> number += 5 </p>
+         <p class="abz"> number -= 3</p>
+         <p class="abz"> print(number)  # 12</p>
+         <p class="abz"> При операциях с числами типа float надо учитывать, что результат операций с ними может быть не совсем точным.
+		 Например:</p>
+  <p class="abz">first_number = 2.0001</p>
+  <p class="abz">second_number = 5</p>
+         <p class="abz">third_number = first_number / second_number</p>
+         <p class="abz">print(third_number) # 0.40002000000000004</p>
+         <p class="abz">print(f 'Вас зовут{name_user}. Ваш город {city_user}.'</p>
+         <p class="abz">В данном случае мы ожидаем получить число 0.40002, однако в конце через ряд нулей появляется еще какая-то четверка.
+		 Или еще одно выражение:</p>
+         <p class="abz">print(2.0001 + 0.1)  # 2.1001000000000003</p>
+         <p class="abz">В случае выше для округления результата мы можем использовать встроенную функцию round():</p>
+  <p class="abz">Стоит заметить, что в программу поступает строка. Для того чтобы ввести число нужно использовать функции преобразование
+  типов.</p>
+         <p class="abz">first_number = 2.0001</p>
+         <p class="abz">second_number = 0.1</p>
+         <p class="abz">third_number = first_number + second_number</p>
+         <p class="abz">print(round(third_number))  # 2</p>
+         <p class="abz">В функцию round() передается число, которое надо округлить. Если в функцию передается одно число, как в примере выше,
+		 то оно округляется до целого.</p>
+          <p class="abz">Функция round() также может принимать второе число, которое указывает, сколько знаков после запятой должно содержать
+		  получаемое число:</p>
+ <p class="abz">first_number = 2.0001 </p>
+          <p class="abz">first_number = 2.0001</p>
+          <p class="abz">third_number = first_number + second_number)</p>
+  <p class="abz">print(round(third_number, 4))  # 2.1001</p>
+  <p class="abz">В данном случае число third_number округляется до 4 знаков после запятой.</p>
+  <p class="abz">Если в функцию передается только одно значение - только округляемое число,
+  оно округляется то ближайшего целого</p>
+  <p class="abz">Примеры округлений:</p>
+  <p class="abz"># округление до целого числаprint(round(third_number, 4))  # 2.1001</p>
+  <p class="abz">print(round(2.49))  # 2 - округление до ближайшего целого 2</p>
+  <p class="abz">print(round(2.51))  # 3</p>
+  <p class="abz">Однако если округляемая часть равна одинаково удалена от двух целых чисел,
+  то округление идет к ближайшему четному:</p>
+  <p class="abz">print(round(2.5))   # 2 - ближайшее четное</p>
+  <p class="abz">print(round(3.5))   # 4 - ближайшее четное</p>
+  <p class="abz">Округление производится до ближайшего кратного 10 в степени минус округляемая часть:</p>
+  <p class="abz"># округление до двух знаков после запятой</p>
+  <p class="abz">print(round(2.554, 2))      # 2.55</p>
+  <p class="abz">print(round(2.499, 2))      # 2.5</p>
+  <p class="abz">Однако следует учитывать, что функция round() не идеальный инструмент. Например, выше при
+  округление до целых чисел применяется правило, согласно которому, если округляемая часть одинаково удалена
+  от двух значений, то округление производится до ближайшего четного значения. В Python в связи с тем, что десятичная
+  часть числа не может быть точно представлена в виде числа float, то это может приводить к некоторым не совсем ожидаемым
+  результатам. Например:</p>
+  <p class="abz"># округление до двух знаков после запятой</p>
+  <p class="abz">print(round(2.545, 2))   # 2.54</p>
+  <p class="abz">print(round(7.555, 2))   #7.56 - округление до четного</p>
+  <p class="abz">print(round(3.575, 2))   # 3.58</p>
+  <p class="abz">Библиотека (модуль) math</p>
+  <p class="abz">В стандартную поставку Python входит библиотека math, в которой содержится большое количество часто
+  используемых математических функций.</p>
+  <p class="abz">Для работы с данным модулем его предварительно нужно импортировать.</p>
+  <p class="abz">>>> import math</p>
+  <p class="abz">Рассмотрим наиболее часто используемые функции.</p>
+  <p class="abz">math.ceil(x)</p>
+  <p class="abz">Возвращает ближайшее целое число большее, чем x.</p>
+  <p class="abz">>>> math.ceil(3.2)</p>
+  <p class="abz">4</p>
+  <p class="abz">math.fabs(x)</p>
+  <p class="abz">Возвращает абсолютное значение числа.</p>
+  <p class="abz">>>> math.fabs(-7)</p>
+  <p class="abz">7.0</p>
+  <p class="abz">math.factorial(x)</p>
+  <p class="abz">Вычисляет факториал x.)</p>
+  <p class="abz">>>> math.factorial(5)</p>
+  <p class="abz">120</p>
+  <p class="abz">Возвращает ближайшее целое число меньшее, чем x.</p>
+  <p class="abz">>>> math.floor(3.2)</p>
+  <p class="abz">3<p>
+  <p class="abz">math.exp(x)</p>
+  <p class="abz">Вычисляет e**x.</p>
+  <p class="abz">>>> math.exp(3)</p>
+  <p class="abz">20.085536923187668</p>
+  <p class="abz">math.log2(x)</p>
+  <p class="abz">Логарифм по основанию 2.</p>
+  <p class="abz">math.log10(x)</p>
+  <p class="abz">Логарифм по основанию 10.</p>
+  <p class="abz">math.log(x[, base])</p>
+  <p class="abz">По умолчанию вычисляет логарифм по основанию e, дополнительно можно указать основание логарифма.</p>
+  <p class="abz">>>> math.log2(8)</p>
+  <p class="abz">3.0</p>
+  <p class="abz">math.pow(x, y)</p>
+  <p class="abz">Вычисляет значение x в степени y.</p>
+  <p class="abz">>>> math.pow(3, 4)</p>
+  <p class="abz">81.0</p>
+  <p class="abz">math.sqrt(x)</p>
+  <p class="abz">Корень квадратный от x.</p>
+  <p class="abz">>>> math.sqrt(25)</p>
+  <p class="abz">5.0</p>
+  <p class="abz">Тригонометрические функции: math.cos(x),math.sin(x), math.tan(x), math.acos(x), math.asin(x), math.atan(x)</p>
+  <p class="abz">Константы:math.e,math.pi</p>
+  <p class="abz">Помимо перечисленных, модуль math содержит ещё много различных функций.</p>
+  <p class="abz">Вопросы:</p>
+       <form method="post">
+
+<span class="quesion_n">1.Какую функцию выполняет данная строка print(11/2)</span>
+<ul>
+<li><input type="radio" name="test[1]" value="0" id="test_1_0_1" onclick="updateButtonState(this)"/> <label for="test_1_0_1">Вывод на консоль 5.5</label></li>
+<li><input type="radio" name="test[1]" value="1" id="test_1_1_1" onclick="updateButtonState(this)"/> <label for="test_1_1_1">Выведет на консоль 5 </label></li>
+<li><input type="radio" name="test[1]" value="2" id="test_1_2_1" onclick="updateButtonState(this)"/> <label for="test_1_2_1">Переменной print будет присвоено значение 5.5 </label></li>
+</ul>
+<span class="quesion_n">2.Как вывести 6 в 3 степени? </span>
+<ul>
+<li><input type="radio" name="test[2]" value="0" id="test_1_0_2" onclick="updateButtonState(this)"/> <label for="test_1_0_2">print(6^3) </label></li>
+<li><input type="radio" name="test[2]" value="1" id="test_1_1_2" onclick="updateButtonState(this)"/> <label for="test_1_1_2">print(6**3)</label></li>
+<li><input type="radio" name="test[2]" value="2" id="test_1_2_2" onclick="updateButtonState(this)"/> <label for="test_1_2_2">print(6*3)</label></li>
+</ul>
+<span class="quesion_n">3.Какая функция используется для округления результата?</span>
+<ul>
+<li><input type="radio" name="test[3]" value="0" id="test_1_0_3" onclick="updateButtonState(this)"/> <label for="test_1_0_3">round()</label></li>
+<li><input type="radio" name="test[3]" value="1" id="test_1_1_3" onclick="updateButtonState(this)"/> <label for="test_1_1_3">Math.round()</label></li>
+<li><input type="radio" name="test[3]" value="2" id="test_1_2_3" onclick="updateButtonState(this)"/> <label for="test_1_2_3">trunk()</label></li>
+</ul>
+<span class="quesion_n">4.Какая библиотека содержит в себе различные функции для математических действий?</span>
+<ul>
+<li><input type="radio" name="test[4]" value="0" id="test_1_0_4" onclick="updateButtonState(this)" /> <label for="test_1_0_4">functionmath</label></li>
+<li><input type="radio" name="test[4]" value="1" id="test_1_1_4" onclick="updateButtonState(this)"/> <label for="test_1_1_4">mathform </label></li>
+<li><input type="radio" name="test[4]" value="2" id="test_1_2_4" onclick="updateButtonState(this)"/> <label for="test_1_2_4">math</label></li>
+</ul>
+<span class="quesion_n">5.Что вернёт данная функция math.fabs(-4)?
+</span>
+<ul>
+<li><input type="radio" name="test[5]" value="0" id="test_1_0_5" onclick="updateButtonState(this)" /> <label for="test_1_0_5">-3</label></li>
+<li><input type="radio" name="test[5]" value="1" id="test_1_1_5" onclick="updateButtonState(this)" /> <label for="test_1_1_5">3</label></li>
+<li><input type="radio" name="test[5]" value="2" id="test_1_2_5" onclick="updateButtonState(this)"/> <label for="test_1_2_5">4</label></li>
+</ul>
+
+{% csrf_token %}
+      <button id="btn-input" type="submit" name="run_script"
+              class="btn btn-info" style="display: none">
+          Проверить результаты</button>
+     <script>
+        var list = [];
+        function updateButtonState(inpt){
+         if(inpt){
+            console.log(list.length);
+            if(!list.includes(inpt.name)){
+              list.push(inpt.name)
+            }
+           }
+
+           let n =  document.getElementsByTagName("ul").length;
+             if(list.length >= n){
+               document.getElementById('btn-input').style.display = 'block';
+               }
+        }
+    </script>
+  </form>
+  </div>
+
+{% endblock %}

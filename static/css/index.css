@@ -1,0 +1,108 @@
+
+@import url("lessons.css");
+
+body{
+  margin: 10px;
+  color: #17202A;
+  background-image: url('/static/img/bk.svg');
+}
+
+div.form
+{
+    display: block;
+    text-align: center;
+    margin-top:20%;
+}
+
+form
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.reg-user, .reg-a{
+color: #2E4053;
+}
+
+.reg-user{
+ color: #2E4053;
+}
+
+.reg-a{
+margin-left: 50px;
+}
+
+.auto-link
+{
+    width:100%;
+	height: auto;
+}
+.child
+{
+	height: 50px;
+	display: inline-block;
+	width: auto;
+	float: center;
+	margin-right:25px;
+
+	font-size:20px;
+	text-align: center;
+}
+
+.child a{
+color:#E74C3C;
+}
+
+.div-autor{
+  display: grid;
+  width: 630px;
+    height: 250px;
+    background-color: #AEB6BF;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 20px;
+}
+
+.div-autortop{
+  display: grid;
+  width: 630px;
+    height: 550px;
+    background-color: #AEB6BF;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 20px;
+}
+
+.connect{
+  display: grid;
+  width: 630px;
+    height: 250px;
+    background-color: #AEB6BF;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 20px;
+}
+
+.main{
+  height:100vh;
+  width:100wh;
+}
+
+

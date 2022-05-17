@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}Урок №{{num}}{% endblock %}
+{% include data_template %}
+
+{% block content %}
+{% load static %}
+<div class="div-state-res">
+<div class="flex-item">
+    {% if num != 1 %}
+    <img class="img-arrow" src="{% static 'img/arrow_l.svg'%}" alt="">
+    <a href="{% url 'old_lessons' idlesson=num iduser=id namep=name %}" class="child">Предыдущий  урок</a>
+    {% endif %}
+</div>
+<div class="flex-item-p">
+    {% if isres == 1 %}
+    <p>Вы отлично справились с заданием можно перейти к следующему уроку</p>
+    {% elif isres == 2 or isres == 4 %}
+    <p>К сожалению есть неверные ответы, изучите материал и в следующий раз у вас все получится</p>
+    {% endif %}
+</div>
+<div class="flex-item">
+    {% if isres == 1 or isres == 4 %}
+    <a href="{% url 'new_lessons' idlesson=num iduser=id namep=name isres=0 %}" class="child">Сдедующий урок</a>
+    <img src="{% static 'img/arrow_r.svg'%}" alt="">
+    {% endif %}
+</div>
+</div>
+
+{% block contentln %}
+{% endblock %}
+
+<div class="div-state-res">
+<div class="flex-item">
+    {% if num != 1 %}
+    <img class="img-arrow" src="{% static 'img/arrow_l.svg'%}" alt="">
+    <a href="{% url 'old_lessons' idlesson=num iduser=id namep=name %}" class="child">Предыдущий  урок</a>
+    {% endif %}
+</div>
+<div class="flex-item-p">
+    {% if isres == 1 %}
+    <p>Вы отлично справились с заданием можно перейти к следующему уроку</p>
+    {% elif isres == 2 or isres == 4 %}
+    <p>К сожалению есть неверные ответы, изучите материал и в следующий раз у вас все получится</p>
+    {% endif %}
+</div>
+<div class="flex-item">
+    {% if isres == 1 or isres == 4 %}
+    <a href="{% url 'new_lessons' idlesson=num iduser=id namep=name isres=0 %}" class="child">Сдедующий урок</a>
+    <img src="{% static 'img/arrow_r.svg'%}" alt="">
+    {% endif %}
+</div>
+</div>
+{% endblock %}

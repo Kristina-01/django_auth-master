@@ -1,0 +1,206 @@
+{% extends 'lessonsbase.html' %}
+
+{% block contentln %}
+
+
+<div class="container d-flex align-items-center justify-content-center">
+<h1>Урок 5. Условный оператор и циклы.</h1>
+</div>
+<div class="container d-flex align-items-center justify-content-center">
+<p  class="abz">Время прочтения: 6 минуты </p>
+</div>
+
+<div class="block1" align="justify" >
+  <p class="abz">В данном уроке будут рассмотрены такие операторы цикла, как while и for, а также оператор ветвления if.</p>
+  <p class="abz"> Условный оператор ветвления if</p>
+  <p class="abz">Оператор ветвления if  позволяет выполнить определенный набор инструкций в зависимости от некоторого условия.
+  Возможны следующие варианты использования.</p>
+  <p class="abz">1. Конструкция if</p>
+  <p class="abz">Синтаксис оператора if выглядит так.</p>
+         <p class="abz">if выражение:</p>
+         <p class="abz">инструкция_1</p>
+         <p class="abz">инструкция_2</p>
+		 <p class="abz">...</p>
+		 <p class="abz">После оператора if  записывается выражение. Если это выражение истинно, то выполняются инструкции,
+		 определяемые данным оператором. Выражение является истинным, если его результатом является число не равное нулю,
+		 непустой объект, либо логическое True. После выражения нужно поставить двоеточие “:”.</p>
+		 <p class="abz">ВАЖНО: блок кода, который необходимо выполнить, в случае истинности выражения, отделяется четырьмя
+		 пробелами слева!</p>
+ <p class="abz">Примеры:</p>
+         <p class="abz">if 1:</p>
+         <p class="abz">print("hello 1")</p>
+ <p class="abz">Напечатает: hello 1</p>
+         <p class="abz">lst = [1, 2, 3]</p>
+         <p class="abz">if lst :</p>
+         <p class="abz">print("hello 4")</p>
+         <p class="abz">Напечатает: hello 4</p>
+ <p class="abz">2. Конструкция if – else</p>
+         <p class="abz">Бывают случаи, когда необходимо предусмотреть альтернативный вариант выполнения программы.
+Т.е. при истинном условии нужно выполнить один набор инструкций, при ложном – другой. Для этого используется конструкция
+ if – else.</p>
+         <p class="abz">if выражение:<p>
+ <p class="abz">инструкция_1</p>
+         <p class="abz">инструкция_2</p>
+         <p class="abz">...</p>
+         <p class="abz">else:</p>
+		 <p class="abz">инструкция_a</p>
+		 <p class="abz">инструкция_b</p>
+		 <p class="abz">Примеры:</p>
+ <p class="abz">a = 3</p>
+ <p class="abz">if a > 2:</p>
+ <p class="abz">print("H")</p>
+         <p class="abz">else:</p>
+         <p class="abz">print("L")</p>
+         <p class="abz">Напечатает: H</p>
+  <p class="abz">Условие такого вида можно записать в строчку, в таком случае оно будет представлять собой тернарное выражение.</p>
+  <p class="abz">a = 17</p>
+  <p class="abz">b = True if a > 10 else False</p>
+         <p class="abz">Присвоение результата целочисленного деления</p>
+         <p class="abz">print(b)</p>
+  <p class="abz">В результате выполнения такого кода будет напечатано: True</p>
+         <p class="abz">3. Конструкция if – elif – else</p>
+         <p class="abz">Для реализации выбора из нескольких альтернатив можно использовать конструкцию if – elif – else.</p>
+  <p class="abz">if выражение_1:</p>
+         <p class="abz">инструкции_(блок_1)</p>
+         <p class="abz">elif выражение_2:</p>
+         <p class="abz">инструкции_(блок_2)</p>
+         <p class="abz">elif выражение_3:</p>
+         <p class="abz">инструкции_(блок_3)</p>
+  <p class="abz">Пример:</p>
+  <p class="abz">a = int(input("введите число:"))</p>
+         <p class="abz">if a < 0:</p>
+         <p class="abz">print("Neg")</p>
+         <p class="abz">elif a == 0:</p>
+         <p class="abz">print("Zero")</p>
+         <p class="abz">print(2.0001 + 0.1)  # 2.1001000000000003</p>
+         <p class="abz">else:</p>
+  <p class="abz">print("Pos")</p>
+         <p class="abz">Если пользователь введет число меньше нуля, то будет напечатано “Neg“,
+		 равное нулю – “Zero“, большее нуля – “Pos“.</p>
+         <p class="abz">Оператор цикла while</p>
+         <p class="abz">Оператор цикла while  выполняет указанный набор инструкций до тех пор, пока условие цикла истинно.
+		 Истинность условия определяется также как и в операторе if. Синтаксис оператора while  выглядит так.</p>
+         <p class="abz">while выражение:</p>
+         <p class="abz">инструкция_1</p>
+          <p class="abz">инструкция_2</p>
+ <p class="abz">...</p>
+          <p class="abz">Выполняемый набор инструкций называется телом цикла.</p>
+          <p class="abz">Пример:</p>
+  <p class="abz">a = 0</p>
+  <p class="abz">while a < 7:</p>
+  <p class="abz">print("A")</p>
+  <p class="abz">a += 1</p>
+  <p class="abz">Буква “А” будет выведена семь раз в столбик.</p>
+  <p class="abz">Операторы break и continue</p>
+  <p class="abz">При работе с циклами используются операторы break  и continue.</p>
+  <p class="abz">Оператор break  предназначен для досрочного прерывания работы цикла while.</p>
+  <p class="abz">Пример:</p>
+  <p class="abz">a = 0</p>
+  <p class="abz">while a >= 0:</p>
+  <p class="abz">if a == 7:</p>
+  <p class="abz">a += 1</p>
+  <p class="abz">print("A")</p>
+  <p class="abz">В приведенном выше коде, выход из цикла произойдет при достижении переменной a  значения 7.
+  Если бы не было этого условия, то цикл выполнялся бы бесконечно.</p>
+  <p class="abz">Оператор continue  запускает цикл заново, при этом код, расположенный после данного оператора,
+  не выполняется.</p>
+  <p class="abz">Пример:</p>
+  <p class="abz">a = -1</p>
+  <p class="abz">while a < 10:</p>
+  <p class="abz">a += 1</p>
+  <p class="abz">if a >= 7:</p>
+  <p class="abz">continue</p>
+  <p class="abz">print("A")</p>
+  <p class="abz">При запуске данного кода символ “А” будет напечатан 7 раз, несмотря на то, что всего будет выполнено
+  11 проходов цикла.</p>
+  <p class="abz">Оператор цикла for</p>
+  <p class="abz">Оператор for  выполняет указанный набор инструкций заданное количество раз, которое определяется
+  количеством элементов в наборе.</p>
+  <p class="abz">Пример:</p>
+  <p class="abz">for i in range(5):</p>
+  <p class="abz">print("Hello")</p>
+  <p class="abz">В результате “Hello” будет выведено пять раз.</p>
+  <p class="abz">Внутри тела цикла можно использовать операторы break  и continue, принцип работы их точно такой же как
+  и в операторе while.</p>
+  <p class="abz">Если у вас есть заданный список, и вы хотите выполнить над каждым элементом определенную операцию
+  (возвести в квадрат и напечатать получившееся число), то с помощью for  такая задача решается так.</p>
+  <p class="abz">lst = [1, 3, 5, 7, 9]</p>
+  <p class="abz">for i in lst:</p>
+  <p class="abz">print(i ** 2)</p>
+  <p class="abz">Также можно пройти по всем буквам в строке.</p>
+  <p class="abz">word_str = "Hello, world!"</p>
+  <p class="abz">for l in word_str:<p>
+  <p class="abz">print(l)</p>
+  <p class="abz">Строка “Hello, world!” будет напечатана в столбик.</p>
+
+
+<form method="post">
+<span class="quesion_n">1.Как работает условный оператор if?</span>
+<ul>
+<li><input type="radio" name="test[1]" value="0" id="test_1_0_1" onclick="updateButtonState(this)"/> <label for="test_1_0_1">Если выражение, стоящие после if верное, то выполняется определенная инструкция</label></li>
+<li><input type="radio" name="test[1]" value="1" id="test_1_1_1" onclick="updateButtonState(this)"/> <label for="test_1_1_1">Если переменная стоящая после if ранне объявлена в коде, то выполняется определенная инструкция</label></li>
+<li><input type="radio" name="test[1]" value="2" id="test_1_2_1" onclick="updateButtonState(this)"/> <label for="test_1_2_1">Не зависимо от того, каким является выражения, всегда выполнится определенная инструкция, которая следует за if</label></li>
+</ul>
+<span class="quesion_n">2. Зачем используется конструкция if-elif-else?</span>
+<ul>
+<li><input type="radio" name="test[2]" value="0" id="test_1_0_2" onclick="updateButtonState(this)"/> <label for="test_1_0_2">Для того, чтобы инструкции выполнялись до тех пор пока условия будут истинными</label></li>
+<li><input type="radio" name="test[2]" value="1" id="test_1_1_2" onclick="updateButtonState(this)"/> <label for="test_1_1_2">Для того, чтобы включить одно условие в другое </label></li>
+<li><input type="radio" name="test[2]" value="2" id="test_1_2_2" onclick="updateButtonState(this)"/> <label for="test_1_2_2">Для реализации выбора из нескольких альтернатив</label></li>
+</ul>
+<span class="quesion_n">3.Как может выглядить бесконечный цикл while?</span>
+<ul>
+<li><input type="radio" name="test[3]" value="0" id="test_1_0_3" onclick="updateButtonState(this)"/> <label for="test_1_0_3"><p class="abz">a=0</p>
+                                                                                        <p class="abz">while a<5 </p>
+																					    <p class="abz">a-=1</p>
+																				        <p class="abz">print(a)</p></label></li>
+<li><input type="radio" name="test[3]" value="1" id="test_1_1_3" onclick="updateButtonState(this)"/> <label for="test_1_1_3"><p class="abz">a=0</p>
+                                                                                        <p class="abz">b=5</p>
+                                                                                        <p class="abz">while a<5 </p>
+																					    <p class="abz">b-=1</p>
+																				        <p class="abz">print(b)</p></label></li></label></li>
+<li><input type="radio" name="test[3]" value="2" id="test_1_2_3" onclick="updateButtonState(this)" /> <label for="test_1_2_3"><p class="abz">a=0</p>
+                                                                                        <p class="abz">while a < 7:</p>
+																					    <p class="abz">print("A")</p>
+																				        <p class="abz"> a += 1</p></label></li></label></li>
+</ul>
+<span class="quesion_n">4.Для чего предназначается оператор break?</span>
+<ul>
+<li><input type="radio" name="test[4]" value="0" id="test_1_0_4" onclick="updateButtonState(this)"/> <label for="test_1_0_4">Для запуска цикла заново, при этом код, расположенный после данного оператора не выполняется</label></li>
+<li><input type="radio" name="test[4]" value="1" id="test_1_1_4" onclick="updateButtonState(this)"/> <label for="test_1_1_4">Для долгосрочного прерывания работы цикла</label></li>
+<li><input type="radio" name="test[4]" value="2" id="test_1_2_4" onclick="updateButtonState(this)"/> <label for="test_1_2_4">Для прекращения работы программы</label></li>
+</ul>
+<span class="quesion_n">5.Что выведет данный код? <p class="abz">str = "Дальше-больше"</p>
+												  <p class="abz">for l in str:</p>
+												  <p class="abz">print(l)</p>
+</span>
+<ul>
+<li><input type="radio" name="test[5]" value="0" id="test_1_0_5" onclick="updateButtonState(this)"/> <label for="test_1_0_5">Строка "Дальше-больше" будет напечатана в столбик</label></li>
+<li><input type="radio" name="test[5]" value="1" id="test_1_1_5" onclick="updateButtonState(this)"/> <label for="test_1_1_5">Будет напечатана строка "str"</label></li>
+<li><input type="radio" name="test[5]" value="2" id="test_1_2_5" onclick="updateButtonState(this)"/> <label for="test_1_2_5">Строка "Дальше-больше" будет напечатана в строчку</label></li>
+</ul>
+
+
+{% csrf_token %}
+      <button id="btn-input" type="submit" name="run_script"
+              class="btn btn-info" style="display: none">
+          Проверить результаты</button>
+     <script>
+        var list = [];
+        function updateButtonState(inpt){
+         if(inpt){
+            console.log(list.length);
+            if(!list.includes(inpt.name)){
+              list.push(inpt.name)
+            }
+           }
+
+           let n =  document.getElementsByTagName("ul").length;
+             if(list.length >= n){
+               document.getElementById('btn-input').style.display = 'block';
+               }
+        }
+    </script>
+  </form>
+  </div>
+
+{% endblock %}

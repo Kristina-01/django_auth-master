@@ -1,0 +1,19 @@
+<!-- templates/registration/signup.html -->
+{% extends "base.html" %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<div class="div-autortop">
+  <script type="text/javascript">
+       document.getElementById('exit-user-p').style.display = 'none';
+       document.getElementById('exit-user-a').style.display = 'none';
+</script>
+  <h2>Регистрация</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-secondary" type="submit">Зарегистрироваться</button>
+  </form>
+  </div>
+{% endblock %}

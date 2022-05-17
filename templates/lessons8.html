@@ -1,0 +1,153 @@
+{% extends 'lessonsbase.html' %}
+
+{% block contentln %}
+<div class="container d-flex align-items-center justify-content-center">
+<h1>Урок 8. Модули и пакеты.</h1>
+</div>
+<div class="container d-flex align-items-center justify-content-center">
+<p  class="abz">Время прочтения: 6 минуты </p>
+</div>
+
+<div class="block1" align="justify" >
+  <p class="abz">Модули и пакеты значительно упрощают работу программиста. Классы, объекты, функции и константы, которыми приходится часто пользоваться
+можно упаковать в модуль, и, в дальнейшем, загружать его в свои программы при необходимости. Пакеты позволяют формировать пространства имен для работы с модулями.</p>
+  <p class="abz">Что такое модуль в Python?</p>
+  <p class="abz">Под модулем в Python понимается файл с расширением .py. Модули предназначены для того, чтобы в них хранить часто используемые функции, классы,
+константы и т.п. Можно условно разделить модули и программы: программы предназначены для непосредственного запуска, а модули для импортирования их в другие программы.
+Стоит заметить, что модули могут быть написаны не только на языке Python, но и на других языках (например C).</p>
+  <p class="abz">Как импортировать модули в Python?</p>
+  <p class="abz">Самый простой способ импортировать модуль в Python это воспользоваться конструкцией:</p>
+         <p class="abz">import имя_модуля</p>
+         <p class="abz">Импорт и использование модуля math, который содержит математические функции, будет выглядеть вот так. 1</p>
+         <p class="abz">>>> import math</p>
+		 <p class="abz">>>> math.factorial(5)</p>
+		 <p class="abz">120</p>
+		 <p class="abz">За один раз можно импортировать сразу несколько модулей, для этого их нужно перечислить через запятую после
+слова import:</p>
+ <p class="abz">import имя_модуля1, имя_модуля2</p>
+         <p class="abz">>>> import math, datetime</p>
+         <p class="abz">>>> math.cos(math.pi/4)</p>
+ <p class="abz">0.707106781186547</p>
+         <p class="abz">>>> datetime.date(2017, 3, 21)</p>
+         <p class="abz">datetime.date(2017, 3, 21)</p>
+         <p class="abz">Если вы хотите задать псевдоним для модуля в вашей программе, можно воспользоваться вот таким синтаксисом:</p>
+         <p class="abz">import имя_модуля as новое_имя</p>
+ <p class="abz">>>> import math as m</p>
+         <p class="abz">>>> m.sin(m.pi/3)</p>
+         <p class="abz">0.866025403784438<p>
+ <p class="abz">Используя любой из вышеперечисленных подходов, при вызове функции из импортированного модуля, вам всегда придется указывать имя модуля (или псевдоним).
+ Для того, чтобы этого избежать делайте импорт через конструкцию from … import…</p>
+         <p class="abz">from имя_модуля import имя_объекта</p>
+         <p class="abz">>>> from math import cos</p>
+         <p class="abz">>>> cos(3.14)</p>
+		 <p class="abz">0.999998731727539</p>
+		 <p class="abz">При этом импортируется только конкретный объект (в нашем примере: функция cos), остальные функции недоступны, даже если при их вызове указать имя модуля.</p>
+		 <p class="abz">>>> from math import cos</p>
+ <p class="abz">>>> cos(3.14)</p>
+ <p class="abz">-0.999998731727539</p>
+ <p class="abz">>>> sin(3.14)</p>
+         <p class="abz">Traceback (most recent call last):</p>
+         <p class="abz">File "pyshell#2", line 1, in module</p>
+         <p class="abz">sin(3.14)</p>
+  <p class="abz">NameError: name 'sin' is not defined</p>
+  <p class="abz">Для имортирования нескольких функций из модуля, можно перечислить их имена через запятую.</p>
+  <p class="abz">>>> from math import cos, sin, pi</p>
+  <p class="abz">>>> cos(pi/3)</p>
+  <p class="abz">0.500000000000000</p>
+  <p class="abz">>>> sin(pi/3)</p>
+  <p class="abz">0.866025403784438</p>
+  <p class="abz">Импортируемому объекту можно задать псевдоним.</p>
+  <p class="abz">from имя_модуля import имя_объекта as псевдоним_объекта</p>
+  <p class="abz">>>> from math import factorial as f</p>
+  <p class="abz">>>> f(4)</p>
+  <p class="abz">24</p>
+  <p class="abz">Если необходимо импортировать все фукнции, классы и т.п. из модуля, то воспользуйтесь следующей формой оператора
+  from … import …</p>
+  <p class="abz">from имя_модуля import *</p>
+  <p class="abz">Что такое пакет в Python?</p>
+  <p class="abz">Пакет в Python – это каталог, включающий в себя другие каталоги и модули, но при этом дополнительно содержащий файл __init__.py.
+  Пакеты используются для формирования пространства имен, что позволяет работать с модулями через указание уровня вложенности (через точку).</p>
+  <p class="abz">Для импортирования пакетов используется тот же синтаксис, что и для работы с модулями.</p>
+  <p class="abz">Рассмотрим следующую структуру пакета:</p>
+  <p class="abz">fincalc</p>
+  <p class="abz">|-- __init__.py</p>
+  <p class="abz">|-- simper.py</p>
+  <p class="abz">|-- compper.py</p>
+  <p class="abz">|-- annuity.py</p>
+  <p class="abz">Пакет fincal содержит в себе модули для работы с простыми процентами (simper.py), сложными процентами (compper.py) и аннуитетами
+(annuity.py).</p>
+  <p class="abz">Для использования фукнции из модуля работы с простыми процентами, можно использовать один из следующих вариантов:</p>
+  <p class="abz">import fincalc.simper</p>
+  <p class="abz">fv = fincalc.simper.fv(pv, i, n)</p>
+  <p class="abz">import fincalc.simper as sp</p>
+  <p class="abz">fv =sp.fv(pv, i, n)</p>
+  <p class="abz">from fincalc import simper</p>
+  <p class="abz">fv = simper.fv(pv, i, n)</p>
+  <p class="abz">Файл __init__.py может быть пустым или может содержать переменную __all__, хранящую список модулей, который импортируется при загрузке
+  через конструкцию</p>
+  <p class="abz">from имя_пакета import *</p>
+  <p class="abz">Например для нашего случая содержимое __init__.py может быть вот таким:</p>
+  <p class="abz">__all__ = ["simper", "compper", "annuity"]</p>
+
+
+<p class="abz">Вопрсы</p>
+    <form method="post">
+<span class="quesion_n">1.Зачем нужны модули?</span>
+<ul>
+<li><input type="radio" name="test[1]" value="0" id="test_1_0_1" onclick="updateButtonState(this)"/> <label for="test_1_0_1">Для формирования пространства имен, что позволяет работать с модулями через указание уровня вложенности (через точку).</label></li>
+<li><input type="radio" name="test[1]" value="1" id="test_1_1_1" onclick="updateButtonState(this)"/> <label for="test_1_1_1">Модули предназначены для того, чтобы в них хранить часто используемые функции, классы, константы и т.п.</label></li>
+<li><input type="radio" name="test[1]" value="2" id="test_1_2_1" onclick="updateButtonState(this)"/> <label for="test_1_2_1">Для повторного использования кода</label></li>
+</ul>
+<span class="quesion_n">2. Как задать псевдоним для модуля math?</span>
+<ul>
+<li><input type="radio" name="test[2]" value="0" id="test_1_0_2" onclick="updateButtonState(this)"/> <label for="test_1_0_2"> import math as m</label></li>
+<li><input type="radio" name="test[2]" value="1" id="test_1_1_2" onclick="updateButtonState(this)"/> <label for="test_1_1_2"><p class="abz">math m</p>
+												                                        <p class="abz"> import  m</p></label></li>
+<li><input type="radio" name="test[2]" value="2" id="test_1_2_2" onclick="updateButtonState(this)"/> <label for="test_1_2_2">Нельзя задавать псевдоним для модулей</label></li>
+</ul>
+<span class="quesion_n">3.Каким способом можно импортировать все функции, классы и т.п. из модуля?</span>
+<ul>
+<li><input type="radio" name="test[3]" value="0" id="test_1_0_3" onclick="updateButtonState(this)"/> <label for="test_1_0_3">from math import *</label></li>
+<li><input type="radio" name="test[3]" value="1" id="test_1_1_3" onclick="updateButtonState(this)"/> <label for="test_1_1_3">from math import all</label></li></label></li>
+<li><input type="radio" name="test[3]" value="2" id="test_1_2_3" onclick="updateButtonState(this)"/> <label for="test_1_2_3">from math import </label></li></label></li>
+</ul>
+<span class="quesion_n">4.Что такое пакет?</span>
+<ul>
+<li><input type="radio" name="test[4]" value="0" id="test_1_0_4" onclick="updateButtonState(this)"/> <label for="test_1_0_4">Это каталог, включающий в себя другие каталоги и модули, но при этом дополнительно содержащий файл __init__.py.</label></li>
+<li><input type="radio" name="test[4]" value="1" id="test_1_1_4" onclick="updateButtonState(this)"/> <label for="test_1_1_4">Это набор из одного файла модуля в нескольких каталогах.</label></li>
+<li><input type="radio" name="test[4]" value="2" id="test_1_2_4" onclick="updateButtonState(this)"/> <label for="test_1_2_4">Это каталог, включающий в себя  модули, но при этом дополнительно содержащий файл user.html.</label></li>
+</ul>
+<span class="quesion_n">5.Как импортировать пакеты?</span>
+<ul>
+<li><input type="radio" name="test[5]" value="0" id="test_1_0_5" onclick="updateButtonState(this)"/> <label for="test_1_0_5">import имя_пакета</label></li>
+<li><input type="radio" name="test[5]" value="1" id="test_1_1_5" onclick="updateButtonState(this)"/> <label for="test_1_1_5">import package имя_пакета</label></li>
+<li><input type="radio" name="test[5]" value="2" id="test_1_2_5" onclick="updateButtonState(this)"/> <label for="test_1_2_5">package имя_пакета</label></li>
+</ul>
+
+{% csrf_token %}
+      <button id="btn-input" type="submit" name="run_script"
+              class="btn btn-info" style="display: none">
+          Проверить результаты</button>
+     <script>
+        var list = [];
+        function updateButtonState(inpt){
+         if(inpt){
+            console.log(list.length);
+            if(!list.includes(inpt.name)){
+              list.push(inpt.name)
+            }
+           }
+
+           let n =  document.getElementsByTagName("ul").length;
+             if(list.length >= n){
+               document.getElementById('btn-input').style.display = 'block';
+               }
+        }
+    </script>
+  </form>
+  </div>
+
+
+
+
+{% endblock %}

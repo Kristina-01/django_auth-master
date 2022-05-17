@@ -1,0 +1,163 @@
+{% extends 'lessonsbase.html' %}
+
+{% block contentln %}
+<div class="container d-flex align-items-center justify-content-center">
+<h1>Урок 3. Ввод и вывод данных</h1>
+</div>
+<div class="container d-flex align-items-center justify-content-center">
+<p>Время прочтения: 6 минуты </p>
+</div>
+
+ <div class="block1" align="justify" >
+  <p class="abz">Ввод данных в программу и их вывод важны в программировании. Без ввода программы делали бы одно и то же, исключая случаи,
+  когда в них самих генерируются случайные значения. Вывод позволяет увидеть, использовать, передать дальше результат работы
+  программы.</p>
+  <p class="abz"> Обычно требуется, чтобы программа обрабатывала какой-то диапазон различных входных данных, которые поступают в нее из
+  внешних источников. В качестве последних могут выступать файлы, клавиатура, сеть, выходные данные из другой программы.
+  В свою очередь вывод данных, например, возможен в файл, по сети, в базу данных, на принтер. Однако нередко информацию просто
+  выводят на экран монитора.</p>
+  <p class="abz"> Можно сказать, что программа – это открытая система, которая обменивается чем-либо с внешней для нее средой.
+  Если живой организм в основном обменивается веществом и энергией, то программа – данными, информацией.</p>
+  <p class="abz">Для печати значений в Питоне есть функция print(). Внутри круглых скобок через запятую мы пишем то, что хотим вывести.</p>
+  <p class="abz">К основным встроенным типам относятся:</p>
+         <p class="abz">print(1032)</p>
+         <p class="abz">1032</p>
+         <p class="abz">print(2.34)</p>
+		 <p class="abz">2.34</p>
+		 <p class="abz">print("Hello")</p>
+		 <p class="abz">Hello</p>
+ <p class="abz">В скобках могут быть любые типы данных. Кроме того, количество данных может быть различным.</p>
+         <p class="abz">print("a:", 1)</p>
+         <p class="abz">a: 1</p>
+ <p class="abz">Если в скобках стоит выражение, то сначала оно выполняется, после чего print() уже выводит результат данного выражения:</p>
+         <p class="abz">print("hello" + " " + "world")</p>
+         <p class="abz">hello world</p>
+         <p class="abz">print(10 - 2.5/2)</p>
+         <p class="abz">8.75</p>
+ <p class="abz">В print() предусмотрены дополнительные параметры. Например, через параметр sep можно указать отличный от пробела разделитель строк:</p>
+         <p class="abz">print("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun", sep="-")</p>
+         <p class="abz">Mon-Tue-Wed-Thu-Fri-Sat-Sun</p>
+ <p class="abz">Параметр end позволяет указывать, что делать, после вывода строки. По-умолчанию происходит переход на новую строку.
+ Однако это действие можно отменить, указав любой другой символ или строку.Обычно end используется не в интерактивном режиме,
+ а в скриптах, когда несколько выводов подряд надо разделить не переходом на новую строку, а, скажем, запятыми. Сам переход на
+ новую строку обозначается символом '\n'.</p>
+         <p class="abz">>>> pupil = "Ben"</p>
+         <p class="abz">>>> old = 16</p>
+         <p class="abz">>>> grade = 9.2</p>
+		 <p class="abz">>>> print("It's %s, %d. Level: %f" %</p>
+		 <p class="abz">>>> ... (pupil, old, grade))</p>
+		 <p class="abz">It's Ben, 16. Level: 9.200000</p>
+ <p class="abz">Здесь вместо трех комбинаций символов %s, %d, %f подставляются значения переменных pupil, old, grade.
+ Буквы s, d, f обозначают типы данных – строку, целое число, вещественное число. Если бы требовалось подставить три строки,
+ то во всех случаях использовалось бы сочетание %s.</p>
+ <p class="abz">За ввод в программу данных с клавиатуры в Python отвечает функция input. Когда вызывается эта функция, программа останавливает
+ свое выполнение и ждет, когда пользователь введет текст. После этого, когда он нажмет Enter, функция input() заберет введенный
+ текст и передаст его программе, которая уже будет обрабатывать его согласно своим алгоритмам.</p>
+ <p class="abz">Если в интерактивном режиме ввести команду input(), то ничего интересного вы не увидите. Компьютер будет ждать,
+ когда вы что-нибудь введете и нажмете Enter или просто нажмете Enter. Если вы что-то ввели, это сразу же отобразиться на
+ экране:</p>
+         <p class="abz">>>> input()</p>
+         <p class="abz">>>> Yes!</p>
+         <p class="abz">>>> 'Yes!'</p>
+
+
+  <p class="abz">Функция input() передает введенные данные в программу. Их можно присвоить переменной. В этом случае интерпретатор не
+  выводит строку сразу же:</p>
+  <p class="abz">>>> answer = input()</p>
+  <p class="abz">No, it is not.</p>
+  <p class="abz">В данном случае строка сохраняется в переменной answer, и при желании мы можем вывести ее значение на экран:</p>
+         <p class="abz"> >>> answer</p>
+         <p class="abz"> 'No, it is not.</p>
+  <p class="abz">При использовании функции print() кавычки в выводе опускаются: </p>
+         <p class="abz"> >>> print(answer)</p>
+         <p class="abz"> No, it is not.</p>
+  <p class="abz">Куда интересней использовать функцию input() в скриптах – файлах с кодом. Рассмотрим такую программу:</p>
+         <p class="abz"> name_user = input()</p>
+         <p class="abz"> city_user = input()</p>
+         <p class="abz">  print(f 'Вас зовут{name_user}. Ваш город {city_user}.')</p>
+         <p class="abz"> Кристина</p>
+         <p class="abz"> Москва</p>
+         <p class="abz"> ВАс зовут Кристина. Ваш город Москва.</p>
+  <p class="abz">При запуске программы, компьютер ждет, когда будет введена сначала одна строка, потом вторая. Они будут присвоены
+  переменным name_user и city_user. После этого значения этих переменных выводятся на экран с помощью форматированного вывода.</p>
+  <p class="abz">У функция input() предусмотрен специальный параметр-приглашение.Это приглашение выводится на экран при вызове input(). </p>
+         <p class="abz">name_user = input('Ваше имя: ')</p>
+         <p class="abz">city_user = input('Ваш город: ')</p>
+         <p class="abz">print(f 'Вас зовут{name_user}. Ваш город {city_user}.'</p>
+         <p class="abz">Ваше имя: Кристина</p>
+         <p class="abz">Ваш город: Москва</p>
+         <p class="abz">Вас зовут Кристина.Ваш город Москва.</p>
+  <p class="abz">Стоит заметить, что в программу поступает строка. Для того чтобы ввести число нужно использовать функции преобразование
+  типов.</p>
+         <p class="abz">first = input('Введите первое число для сложения: ')</p>
+         <p class="abz">second = input('Введите второе число для сложения:')</p>
+         <p class="abz">first = int (first)</p>
+         <p class="abz">second = int(second)</p>
+         <p class="abz">sum = first +second</p>
+          <p class="abz">print(‘Ответ: ’ + sum )</p>
+ <p class="abz">Преобразование типов выполнить в тех же строках кода, где вызывается функция input(): </p>
+          <p class="abz">first = int (input('Введите первое число для сложения: '))</p>
+          <p class="abz">second = int(input('Введите второе число для сложения:'))</p>
+  <p class="abz">Вопросы:</p>
+       <form method="post">
+<span class="quesion_n">1.С помощью каких функций осуществляется ввод и вывод? </span>
+<ul>
+<li><input type="radio" name="test[1]" value="0" id="test_1_0_1" onclick="updateButtonState(this)"/> <label for="test_1_0_1">System.Console.WriteLine(), System.Console.ReadLine()</label></li>
+<li><input type="radio" name="test[1]" value="1" id="test_1_1_1" onclick="updateButtonState(this)"/> <label for="test_1_1_1">print(), input()</label></li>
+<li><input type="radio" name="test[1]" value="2" id="test_1_2_1" onclick="updateButtonState(this)"/> <label for="test_1_2_1">WriteLn(), ReadLn()</label></li>
+</ul>
+<span class="quesion_n">2.Что можно сделать с помощью параметра sep при выводе?</span>
+<ul>
+<li><input type="radio" name="test[2]" value="0" id="test_1_0_2" onclick="updateButtonState(this)"/> <label for="test_1_0_2">Указывать, что делать, после вывода строки</label></li>
+<li><input type="radio" name="test[2]" value="1" id="test_1_1_2" onclick="updateButtonState(this)"/> <label for="test_1_1_2">Подсчитать количество символов</label></li>
+<li><input type="radio" name="test[2]" value="2" id="test_1_2_2" onclick="updateButtonState(this)"/> <label for="test_1_2_2">Указать отличный от пробела разделитель строк</label></li>
+</ul>
+<span class="quesion_n">3.Зачем использовать параметр-приглашения?</span>
+<ul>
+<li><input type="radio" name="test[3]" value="0" id="test_1_0_3" onclick="updateButtonState(this)"/> <label for="test_1_0_3">чтобы пользователь понимал, какие данные ему следует ввести</label></li>
+<li><input type="radio" name="test[3]" value="1" id="test_1_1_3" onclick="updateButtonState(this)"/> <label for="test_1_1_3">чтобы пользователь понимал, какой тип данных нужно вводить </label></li>
+<li><input type="radio" name="test[3]" value="2" id="test_1_2_3" onclick="updateButtonState(this)"/> <label for="test_1_2_3">чтобы пользователь перешел по определенной ссылке для дальнейшей работы</label></li>
+</ul>
+<span class="quesion_n">4.аков порядок действий при выполнения данной строки print("hello" + " " + "world")?</span>
+<ul>
+<li><input type="radio" name="test[4]" value="0" id="test_1_0_4" onclick="updateButtonState(this)"/> <label for="test_1_0_4">просто будет выведено "hello" + " " + "world"</label></li>
+<li><input type="radio" name="test[4]" value="1" id="test_1_1_4" onclick="updateButtonState(this)"/> <label for="test_1_1_4">сначала будет произведен вывод, а лишь потом будет выполнено выражение</label></li>
+<li><input type="radio" name="test[4]" value="2" id="test_1_2_4" onclick="updateButtonState(this)"/> <label for="test_1_2_4">сначала выполнится выражение в скобках, а потом вывод</label></li>
+</ul>
+<span class="quesion_n">5.Как должен выглядеть код, который выполняет запрос кол-ва товаров и считает цену покупки?(цена за одну штуку товара 10р)
+</span>
+<ul>
+<li><input type="radio" name="test[5]" value="0" id="test_1_0_5" onclick="updateButtonState(this)"/> <label for="test_1_0_5"><p class="abz">count = int (input("Введите кол-во товаров: " ))</p>
+                                                                                        <p class="abz">res = count * 10</p>
+                                                                                        <p class="abz">print("Итог: " + res)</p></label></li>
+<li><input type="radio" name="test[5]" value="1" id="test_1_1_5" onclick="updateButtonState(this)"/> <label for="test_1_1_5"><p class="abz">count = input("Введите кол-во товаров: " )</p>
+                                                                                        <p class="abz">res = count * 10</p>
+                                                                                        <p class="abz">print("Итог: " +count)</p></label></li>
+<li><input type="radio" name="test[5]" value="2" id="test_1_2_5" onclick="updateButtonState(this)"/> <label for="test_1_2_5"><p class="abz">count = (int) print("Введите кол-во товаров: " )</p>
+                                                                                        <p class="abz">res = count * 10</p>
+                                                                                        <p class="abz">input("Итог: " + res)</p> </label></li>
+</ul>
+            {% csrf_token %}
+           <button id="btn-input" type="submit" name="run_script"
+              class="btn btn-info" style="display: none">
+          Проверить результаты</button>
+           <script>
+        var list = [];
+        function updateButtonState(inpt){
+         if(inpt){
+            console.log(list.length);
+            if(!list.includes(inpt.name)){
+              list.push(inpt.name)
+            }
+           }
+
+           let n =  document.getElementsByTagName("ul").length;
+             if(list.length >= n){
+               document.getElementById('btn-input').style.display = 'block';
+               }
+        }
+    </script>
+  </form>
+  </div>
+
+{% endblock %}

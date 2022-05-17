@@ -1,0 +1,379 @@
+{% extends 'lessonsbase.html' %}
+
+{% block contentln %}
+<div class="container d-flex align-items-center justify-content-center">
+<h1>Урок 10. Классы и объекты</h1>
+</div>
+<div class="container d-flex align-items-center justify-content-center">
+<p  class="abz">Время прочтения: 6 минуты </p>
+</div>
+
+<div class="block1" align="justify" >
+  <p class="abz">Создание классов и объектов</p>
+  <p class="abz">Создание класса в Python начинается с инструкции class. Вот так будет выглядеть минимальный класс.</p>
+  <p class="abz">class C:</p>
+  <p class="abz">pass</p>
+  <p class="abz">Класс состоит из объявления (инструкция class), имени класса (нашем случае это имя C) и тела класса, которое содержит атрибуты и методы (в нашем минимальном классе есть только одна инструкция pass).</p>
+         <p class="abz">Для того чтобы создать объект класса необходимо воспользоваться следующим синтаксисом:</p>
+         <p class="abz">имя_объекта = имя_класса()</p>
+         <p class="abz">Статические и динамические атрибуты класса</p>
+		 <p class="abz">Класс может содержать атрибуты и методы. Атрибут может быть статическим и динамическим (уровня объекта класса). Суть в том, что для работы со статическим атрибутом, вам не нужно создавать экземпляр класса,
+а для работы с динамическим – нужно. Пример:</p>
+		 <p class="abz">class Rectangle:</p>
+		 <p class="abz">default_color = "green"</p>
+ <p class="abz">def __init__(self, width, height):</p>
+         <p class="abz">self.width = width</p>
+         <p class="abz">self.height = height</p>
+ <p class="abz">В представленном выше классе, атрибут default_color – это статический атрибут, и доступ к нему можно получить не создавая объект класса Rectangle.</p>
+         <p class="abz">>>> Rectangle.default_color</p>
+         <p class="abz">'green'</p>
+         <p class="abz">width и height – это динамические атрибуты, при их создании было использовано ключевое слово self. Пока просто примите это как должное, более подробно про self будет рассказано ниже. Для доступа к width и height
+предварительно нужно создать объект класса Rectangle:</p>
+         <p class="abz">>>> rect = Rectangle(10, 20)</p>
+ <p class="abz">>>> rect.width</p>
+         <p class="abz">10</p>
+         <p class="abz">>>> rect.height<p>
+ <p class="abz">20</p>
+         <p class="abz">Если обратиться через класс, то получим ошибку:</p>
+         <p class="abz">>>> Rectangle.width</p>
+         <p class="abz">Traceback (most recent call last):</p>
+		 <p class="abz">File "stdin", line 1, in module</p>
+		 <p class="abz">AttributeError: type object 'Rectangle' has no attribute 'width'</p>
+		 <p class="abz">При этом, если вы обратитесь к статическому атрибуту через экземпляр класса, то все будет ОК, до тех пор, пока вы не попытаетесь его поменять. </p>
+		 <p class="abz">Проверим ещё раз значение атрибута default_color:</p>
+		 <p class="abz">>>> Rectangle.default_color</p>
+		 <p class="abz">'green'</p>
+		 <p class="abz">Присвоим ему новое значение:</p>
+		 <p class="abz">>>> Rectangle.default_color = "red"</p>
+		 <p class="abz">>>> Rectangle.default_color</p>
+		 <p class="abz">'red'</p>
+		 <p class="abz">Создадим два объекта класса Rectangle и проверим, что default_color у них совпадает:</p>
+		 <p class="abz">>>> r1 = Rectangle(1,2)</p>
+		 <p class="abz">>>> r2 = Rectangle(10, 20)</p>
+		 <p class="abz">>>> r1.default_color</p>
+		 <p class="abz">'red'</p>
+		 <p class="abz">>>> r2.default_color</p>
+		 <p class="abz">'red'</p>
+		 <p class="abz">Если поменять значение default_color через имя класса Rectangle, то все будет ожидаемо: у объектов r1 и r2 это значение изменится,
+но если поменять его через экземпляр класса, то у экземпляра будет создан атрибут с таким же именем как статический, а доступ к последнему будет потерян:</p>
+		 <p class="abz">Меняем default_color через r1:</p>
+		 <p class="abz">>>> r1.default_color = "blue"</p>
+		 <p class="abz">>>> r1.default_color</p>
+		 <p class="abz">'blue'</p>
+		 <p class="abz">При этом у r2 остается значение статического атрибута:p>
+		 <p class="abz">>>> r2.default_color</p>
+		 <p class="abz">'red'</p>
+		 <p class="abz">>>> Rectangle.default_color</p>
+		 <p class="abz">'red'</p>
+		 <p class="abz">Методы класса</p>
+		 <p class="abz">Добавим к нашему классу метод. Метод – это функция, находящаяся внутри класса и выполняющая определенную работу.</p>
+		 <p class="abz">Методы бывают статическими, классовыми (среднее между статическими и обычными) и уровня класса (будем их называть просто словом метод).
+Статический метод создается с декоратором @staticmethod, классовый – с декоратором @classmethod, первым аргументом в него передается cls, обычный метод создается
+без специального декоратора, ему первым аргументом передается self:</p>
+		 <p class="abz">class MyClass:</p>
+		 <p class="abz">@staticmethod</p>
+		 <p class="abz">  def ex_static_method():</p>
+		 <p class="abz">print("static method")</p>
+		 <p class="abz">@classmethod</p>
+		 <p class="abz">def ex_class_method(cls):</p>
+		 <p class="abz">print("class method")</p>
+		 <p class="abz">def ex_method(self):</p>
+		 <p class="abz">print("method")</p>
+		 <p class="abz">Статический и классовый метод можно вызвать, не создавая экземпляр класса, для вызова ex_method() нужен объект:</p>
+		 <p class="abz">>>> MyClass.ex_static_method()</p>
+		 <p class="abz">static method</p>
+		 <p class="abz">>>> MyClass.ex_class_method()</p>
+		 <p class="abz">class method</p>
+		 <p class="abz">>>> MyClass.ex_method()</p>
+		 <p class="abz">Traceback (most recent call last):</p>
+		 <p class="abz"> File "stdin", line 1, in module</p>
+		 <p class="abz">TypeError: ex_method() missing 1 required positional argument: 'self'</p>
+		 <p class="abz">>>> m = MyClass()</p>
+		 <p class="abz">>>> m.ex_method()</p>
+		 <p class="abz">method</p>
+		 <p class="abz">Конструктор класса и инициализация экземпляра класса</p>
+		 <p class="abz">В Python разделяют конструктор класса и метод для инициализации экземпляра класса.
+Конструктор класса это метод __new__(cls, *args, **kwargs) для инициализации экземпляра класса используется метод __init__(self).
+При этом, как вы могли заметить __new__ – это классовый метод, а __init__ таким не является. Метод __new__ редко переопределяется,
+чаще используется реализация от базового класса object, __init__ же наоборот является очень удобным способом задать параметры объекта при его создании.</p>
+		 <p class="abz">Создадим реализацию класса Rectangle с измененным конструктором и инициализатором, через который задается ширина и высота прямоугольника:</p>
+		 <p class="abz">class Rectangle:</p>
+		 <p class="abz">def __new__(cls, *args, **kwargs):</p>
+		 <p class="abz">print("Hello from __new__")</p>
+		 <p class="abz">return super().__new__(cls)</p>
+		 <p class="abz">def __init__(self, width, height):</p>
+		 <p class="abz"> print("Hello from __init__")</p>
+		 <p class="abz">self.width = width</p>
+		 <p class="abz">self.height = height</p>
+		 <p class="abz">>>> rect = Rectangle(10, 20)</p>
+		 <p class="abz">Hello from __new__</p>
+		 <p class="abz">Hello from __init__</p>
+		 <p class="abz">>>> rect.width</p>
+		 <p class="abz">10</p>
+		 <p class="abz">>>> rect.height</p>
+		 <p class="abz">20</p>
+		 <p class="abz">Что такое self?</p>
+		 <p class="abz">До этого момента вы уже успели познакомиться с ключевым словом self. self – это ссылка на текущий экземпляр класса, в таких языках как Java,
+C# аналогом является ключевое слово this. Через self вы получаете доступ к атрибутам и методам класса внутри него:</p>
+		 <p class="abz">class Rectangle:</p>
+		 <p class="abz">def __init__(self, width, height):</p>
+		 <p class="abz">self.width = width</p>
+		 <p class="abz">self.height = height</p>
+		 <p class="abz">def area(self):</p>
+		 <p class="abz">return self.width * self.height</p>
+		 <p class="abz">В приведенной реализации метод area получает доступ к атрибутам width и height для расчета площади. Если бы в качестве первого параметра
+не было указано self, то при попытке вызвать area программа была бы остановлена с ошибкой.</p>
+		 <p class="abz">Traceback (most recent call last):</p>
+		 <p class="abz">Если вы знакомы с языками программирования Java, C#, C++ то, наверное, уже задались вопросом: “а как управлять уровнем доступа?”.
+В перечисленных языка вы можете явно указать для переменной, что доступ к ней снаружи класса запрещен, это делается с помощью ключевых слов (private, protected и т.д.).
+В Python таких возможностей нет, и любой может обратиться к атрибутам и методам вашего класса, если возникнет такая необходимость. Это существенный недостаток этого языка,
+т.к. нарушается один из ключевых принципов ООП – инкапсуляция. Хорошим тоном считается, что для чтения/изменения какого-то атрибута должны использоваться специальные методы,
+которые называются getter/setter, их можно реализовать, но ничего не помешает изменить атрибут напрямую. При этом есть соглашение, что метод или атрибут, который начинается
+с нижнего подчеркивания, является скрытым, и снаружи класса трогать его не нужно (хотя сделать это можно).</p>
+		 <p class="abz">Свойства</p>
+		 <p class="abz">Свойством называется такой метод класса, работа с которым подобна работе с атрибутом. Для объявления метода свойством необходимо использовать
+декоратор @property.</p>
+		 <p class="abz">Важным преимуществом работы через свойства является то, что вы можете осуществлять проверку входных значений, перед тем как присвоить их атрибутам.</p>
+		  <p class="abz"><code>
+		  class Rectangle:<Br>
+    def __init__(self, width, height):<Br>
+        self.__width = width<Br>
+        self.__height = height<Br>
+    @property<Br>
+    def width(self):<Br>
+        return self.__width<Br>
+    @width.setter<Br>
+    def width(self, w):<Br>
+        if w > 0:<Br>
+            self.__width = w<Br>
+        else:<Br>
+            raise ValueError<Br>
+    @property<Br>
+    def height(self):<Br>
+        return self.__height<Br>
+    @height.setter<Br>
+    def height(self, h):<Br>
+        if h > 0:<Br>
+            self.__height = h<Br>
+        else:<Br>
+            raise ValueError<Br>
+    def area(self):<Br>
+        return self.__width * self.__height<Br>
+    </code></p>
+		 <p class="abz">Теперь работать с width и height можно так, как будто они являются атрибутами:</p>
+		  <p class="abz"><code>
+		  >>> rect = Rectangle(10, 20)<Br>
+		  >>> rect.width<Br>
+		  10<Br>
+		  >>> rect.height<Br>
+	      20<Br>
+    </code></p>
+		 <p class="abz">Можно не только читать, но и задавать новые значения свойствам:</p>
+		  <p class="abz"><code>
+		  >>> rect.width = 50<Br>
+          >>> rect.width<Br>
+          50<Br>
+          >>> rect.height = 70<Br>
+          >>> rect.height<Br>
+          70<Br>
+    </code></p>
+		 <p class="abz">Если вы обратили внимание: в setter’ах этих свойств осуществляется проверка входных значений,
+если значение меньше нуля, то будет выброшено исключение ValueError:</p>
+ <p class="abz"><code>
+         >>> rect.width = -10<Br>
+         Traceback (most recent call last):<Br>
+         File "stdin", line 1, in module<Br>
+         File "test.py", line 28, in width<Br>
+           raise ValueError<Br>
+         ValueError<Br>
+    </code></p>
+		 <p class="abz">Наследование</p>
+		 <p class="abz">В организации наследования участвуют как минимум два класса: класс родитель и класс потомок. При этом возможно множественное наследование,
+в этом случае у класса потомка может быть несколько родителей. Не все языки программирования поддерживают множественное наследование, но в Python можно его использовать.
+По умолчанию все классы в Python являются наследниками от object, явно этот факт указывать не нужно.</p>
+		 <p class="abz">Синтаксически создание класса с указанием его родителя выглядит так:</p>
+		 <p class="abz">class имя_класса(имя_родителя1, [имя_родителя2,…, имя_родителя_n])</p>
+		 <p class="abz">Переработаем наш пример так, чтобы в нем присутствовало наследование:</p>
+		  <p><code>class Figure:<Br>
+    def __init__(self, color):<Br>
+        self.__color = color<Br>
+    @property<Br>
+    def color(self):<Br>
+        return self.__color<Br>
+    @color.setter<Br>
+    def color(self, c):<Br>
+        self.__color = c<Br>
+class Rectangle(Figure): <Br>
+    def __init__(self, width, height, color):<Br>
+        super().__init__(color)<Br>
+        self.__width = width<Br>
+        self.__height = height<Br>
+    @property<Br>
+    def width(self):<Br>
+        return self.__width<Br>
+    @width.setter<Br>
+    def width(self, w):<Br>
+        if w > 0:<Br>
+            self.__width = w<Br>
+        else:<Br>
+            raise ValueError<Br>
+    @property<Br>
+    def height(self):<Br>
+        return self.__height<Br>
+    @height.setter<Br>
+    def height(self, h):<Br>
+        if h > 0:<Br>
+            self.__height = h<Br>
+        else:<Br>
+            raise ValueError<Br>
+    def area(self):<Br>
+        return self.__width * self.__height<Br>
+    </code></p>
+		 <p class="abz">Родительским классом является Figure, который при инициализации принимает цвет фигуры и предоставляет его через свойства. Rectangle – класс наследник от Figure. Обратите внимание на его метод __init__: в нем первым делом вызывается конструктор (хотя это не совсем верно, но будем говорить так) его родительского класса:</p>
+		 <p class="abz">super().__init__(color)</p>
+		 <p class="abz">super – это ключевое слово, которое используется для обращения к родительскому классу.</p>
+		 <p class="abz">Теперь у объекта класса Rectangle помимо уже знакомых свойств width и height появилось свойство color:</p>
+		 <p class="abz">
+    <p><code>
+		 >>> rect = Rectangle(10, 20, "green")<Br>
+         >>> rect.width<Br>
+         10<Br>
+         >>> rect.height<Br>
+         20<Br>
+         >>> rect.color<Br>
+         'green'<Br>
+         >>> rect.color = "red"<Br>
+         >>> rect.color<Br>
+         'red'<Br>
+   </code></p></p>
+		 <p class="abz">Полиморфизм</p>
+		 <p class="abz">Как уже было сказано во введении в рамках ООП полиморфизм, как правило, используется с позиции переопределения методов базового класса в классе наследнике. Проще всего это рассмотреть на примере. Добавим в наш базовый класс метод info(),
+который печатает сводную информацию по объекту класса Figure и переопределим этот метод в классе Rectangle, добавим  в него дополнительные данные:</p>
+		  <p><code>
+		  class Figure:<Br>
+    def __init__(self, color):<Br>
+        self.__color = color<Br>
+    @property<Br>
+    def color(self):<Br>
+        return self.__color<Br>
+    @color.setter<Br>
+    def color(self, c):<Br>
+        self.__color = c<Br>
+    def info(self):<Br>
+       print("Figure")<Br>
+       print("Color: " + self.__color)<Br>
+class Rectangle(Figure):<Br>
+    def __init__(self, width, height, color):<Br>
+        super().__init__(color)<Br>
+        self.__width = width<Br>
+        self.__height = height<Br>
+    @property<Br>
+    def width(self):<Br>
+        return self.__width<Br>
+    @width.setter<Br>
+    def width(self, w):<Br>
+        if w > 0:<Br>
+            self.__width = w<Br>
+        else:<Br>
+            raise ValueError<Br>
+    @property<Br>
+    def height(self):<Br>
+        return self.__height<Br>
+    @height.setter<Br>
+    def height(self, h):<Br>
+        if h > 0:<Br>
+            self.__height = h<Br>
+        else:<Br>
+            raise ValueError<Br>
+    def info(self):<Br>
+        print("Rectangle")<Br>
+        print("Color: " + self.color)<Br>
+        print("Width: " + str(self.width<Br>
+        print("Height: " + str(self.height))<Br>
+        print("Area: " + str(self.area()))<Br>
+    def area(self):<Br>
+        return self.__width * self.__height<Br>
+    </code></p>
+		 <p class="abz">Посмотрим, как это работает</p>
+		  <p><code>
+		  >>> fig = Figure("orange")<Br>
+          >>> fig.info()<Br>
+          Figure<Br>
+          Color: orange<Br>
+          >>> rect = Rectangle(10, 20, "green")<Br>
+          >>> rect.info()<Br>
+          Rectangle<Br>
+          Color: green<Br>
+          Width: 10<Br>
+          Height: 20<Br>
+          Area: 200<Br>
+    </code></p>
+		 <p class="abz">Таким образом, класс наследник может расширять функционал класса родителя.</p>
+
+
+<p class="abz">Вопрсы</p>
+<span class="quesion_n">1.Как создать класс?</span>
+    <form method="post">
+<ul>
+<li><input type="radio" name="test[1]" value="0" id="test_1_0_1" onclick="updateButtonState(this)"/> <label for="test_1_0_1"><p class="abz">new class A:</p>
+												                                        <p class="abz">pass</p></label></li>
+<li><input type="radio" name="test[1]" value="1" id="test_1_1_1" onclick="updateButtonState(this)"/> <label for="test_1_1_1"><p class="abz">public class A(){</p>
+												                                        <p class="abz">pass}</p></label></li>
+<li><input type="radio" name="test[1]" value="2" id="test_1_2_1" onclick="updateButtonState(this)"/> <label for="test_1_2_1"><p class="abz">class A:</p>
+												                                        <p class="abz">pass</p></label></li>
+</ul>
+<span class="quesion_n">2.Какой синтаксис нужно использовать при создании объекта?</span>
+<ul>
+<li><input type="radio" name="test[2]" value="0" id="test_1_0_2" onclick="updateButtonState(this)"/> <label for="test_1_0_2">имя_объекта = new  имя_класса()</label></li>
+<li><input type="radio" name="test[2]" value="1" id="test_1_1_2" onclick="updateButtonState(this)"/> <label for="test_1_1_2">имя_объекта = имя_класса()</label></li>
+<li><input type="radio" name="test[2]" value="2" id="test_1_2_2" onclick="updateButtonState(this)"/> <label for="test_1_2_2">имя_класса имя_объекта = new  имя_класса()</label></li>
+</ul>
+<span class="quesion_n">3.Чем отличаются динамические и статические атрибуты?</span>
+<ul>
+<li><input type="radio" name="test[3]" value="0" id="test_1_0_3" onclick="updateButtonState(this)"/> <label for="test_1_0_3">для работы со статическим атрибутом, вам не нужно создавать экземпляр класса, а для работы с динамическим – нужно</label></li>
+<li><input type="radio" name="test[3]" value="1" id="test_1_1_3" onclick="updateButtonState(this)"/> <label for="test_1_1_3">динамические атрибуты являются переменными, определенными один раз для класса и совместно используются всеми экземплярами. Статические атрибуты являются переменными, определенными только для индивидуальных экземпляров.</label></li></label></li>
+<li><input type="radio" name="test[3]" value="2" id="test_1_2_3" onclick="updateButtonState(this)"/> <label for="test_1_2_3">для работы с динамическим атрибутом, вам не нужно создавать экземпляр класса, а для работы со статическим – нужно</label></li></label></li>
+</ul>
+<span class="quesion_n">4.Что такое метод?</span>
+<ul>
+<li><input type="radio" name="test[4]" value="0" id="test_1_0_4" onclick="updateButtonState(this)"/> <label for="test_1_0_4">Метод – это функция, находящаяся внутри класса и выполняющая определенную работу.</label></li>
+<li><input type="radio" name="test[4]" value="1" id="test_1_1_4" onclick="updateButtonState(this)"/> <label for="test_1_1_4">Метод - это функция, которая находится вне класса.</label></li>
+<li><input type="radio" name="test[4]" value="2" id="test_1_2_4" onclick="updateButtonState(this)"/> <label for="test_1_2_4">Метод - подпрограмма, выполняющая какие-либо операции и возвращающая значение. </label></li>
+</ul>
+<span class="quesion_n">5. Как выглядит синтаксис создания класса с указанием его родителя?</span>
+<ul>
+<li><input type="radio" name="test[5]" value="0" id="test_1_0_5" onclick="updateButtonState(this)"/> <label for="test_1_0_5">class имя_класса:имя_родителя{}</label></li>
+<li><input type="radio" name="test[5]" value="1" id="test_1_1_5" onclick="updateButtonState(this)"/> <label for="test_1_1_5">public class имя_класса extends имя_родителя{} </label></li>
+<li><input type="radio" name="test[5]" value="2" id="test_1_2_5" onclick="updateButtonState(this)"/> <label for="test_1_2_5">class имя_класса(имя_родителя1, [имя_родителя2,…, имя_родителя_n])</label></li>
+</ul>
+
+{% csrf_token %}
+      <button id="btn-input" type="submit" name="run_script"
+              class="btn btn-info" style="display: none">
+          Проверить результаты</button>
+     <script>
+        var list = [];
+        function updateButtonState(inpt){
+         if(inpt){
+            console.log(list.length);
+            if(!list.includes(inpt.name)){
+              list.push(inpt.name)
+            }
+           }
+
+           let n =  document.getElementsByTagName("ul").length;
+             if(list.length >= n){
+               document.getElementById('btn-input').style.display = 'block';
+               }
+        }
+    </script>
+  </form>
+  </div>
+
+
+
+
+
+
+
+{% endblock %}

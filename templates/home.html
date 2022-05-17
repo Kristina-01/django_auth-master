@@ -1,0 +1,51 @@
+<!-- templates/home.html-->
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<script type="text/javascript">
+       document.getElementById('exit-user-p').style.display = 'none';
+       document.getElementById('exit-user-a').style.display = 'none';
+</script>
+
+{% if user.is_authenticated %}
+  <!--Привет {{ user.username }}!-->
+  <!--<p><a href="{% url 'logout' %}" class="link-primary">Выход</a></p>-->
+  <div class="main">
+
+      <button id ="btn-pr" onclick="location.href = '/view/{{ user.username }}/{{ user.id }}'" style="display: none"></button>
+      <script type="text/javascript">
+       document.getElementById('exit-user-p').style.display = 'block';
+       document.getElementById('exit-user-a').style.display = 'block';
+
+       (function countRabbits() {
+             document.getElementById('btn-pr').click();
+          })()
+
+      </script>
+  </div>
+{% else %}
+  <!-- <div class="auto auto-link">
+    <a href="{% url 'login' %}" class="child">Авторизоваться</a>
+    <p class="child">Вы не авторизованы</p>
+  </div>
+<div class="auto auto-link">
+   <a href="{% url 'signup' %}" class="reg-a">Регистрация</a>
+ </div> -->
+<div class="div-autor">
+   <div class="child"></div>
+   <div class="child">
+     <p id="p-ch" class="child">Вы не авторизованы</p>
+     <a href="{% url 'login' %}" class="child">авторизируйтесь</a>
+   </div>
+   <div class="child">
+      <p class="child">Если вы не зарегистрированны то </p>
+      <a href="{% url 'signup' %}" class="child">зарегистрируйтесь</a>
+   </div>
+  <div class="child"></div>
+
+</div>
+{% endif %}
+{% endblock %}

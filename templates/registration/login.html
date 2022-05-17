@@ -1,0 +1,19 @@
+<!-- templates/registration/login.html -->
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="connect">
+  <script type="text/javascript">
+       document.getElementById('exit-user-p').style.display = 'none';
+       document.getElementById('exit-user-a').style.display = 'none';
+  </script>
+  <h2 class="reg-user">Авторизируйтесь</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_table }}
+    <button class="btn btn-secondary" type="submit">Зарегистрировать</button>
+  </form>
+  </div>
+{% endblock %}
