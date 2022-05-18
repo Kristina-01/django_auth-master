@@ -18,9 +18,12 @@
   <main>
      <a href="{% url 'user_param' %}">
        {% if user.is_authenticated %}
-      <img class="img_user"  src="/static/{{pathimg}}" alt="">
+         {% if pathimg %}
+         <img class="img_user"  src="/static/{{pathimg}}" alt="">
+         {% else %}
+         <img class="img_user"  src="{% static 'img/user.svg'%}" alt="">
+         {% endif %}
        {% else %}
-
        <img class="img_user"  src="{% static 'img/user.svg'%}" alt="">
        {% endif %}
     </a>
