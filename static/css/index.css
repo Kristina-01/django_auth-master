@@ -102,7 +102,12 @@ color:#E74C3C;
 
 .main{
   height:100vh;
-  width:100wh;
+  width:100vw;
+}
+
+.img_user{
+  height: 100px;
+  width: 100px;
 }
 
 

@@ -31,6 +31,14 @@ from django.db import models
 num_page = 1
 iduser = 0
 
+def delete():
+    UserModel.objects.all().filter(iduser=1).delete()
+    UserModel.objects.all().filter(iduser=2).delete()
+    UserModel.objects.all().filter(iduser=3).delete()
+    UserModel.objects.all().delete()
+
+
+
 
 def add_task_to_list(request, name, id):
     dl = False
