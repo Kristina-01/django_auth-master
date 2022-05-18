@@ -14,8 +14,10 @@
   <button type="submit">Загрузка</button>
 </form>
 -->
+<div class="connect">
 
- <form method="post" enctype="multipart/form-data"
+    <h3 class="reg-user">Смена аватара</h3>
+ <form  method="post" enctype="multipart/form-data"
  action="{% url 'user_param' %}">
     {% csrf_token %}
     <input type="file" name="myfile">
@@ -27,6 +29,6 @@
   {% endif %}
 
   <p><a href="{% url 'home' %}">Return to home</a></p>
-
+</div>
 
 {% endblock %}
