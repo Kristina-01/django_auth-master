@@ -16,19 +16,19 @@
 -->
 <div class="connect">
 
-    <h3 class="reg-user">Смена аватара</h3>
+    <h2 class="reg-user">Смена аватара</h2>
  <form  method="post" enctype="multipart/form-data"
  action="{% url 'user_param' %}">
     {% csrf_token %}
     <input type="file" name="myfile">
-    <button type="submit">Upload</button>
+    <button class="btn btn-primary" type="submit">Загрузить</button>
   </form>
 
   {% if uploaded_file_url %}
     <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
   {% endif %}
 
-  <p><a href="{% url 'home' %}">Return to home</a></p>
+  <p><a href="{% url 'home' %}">Перейти домой</a></p>
 </div>
 
 {% endblock %}
